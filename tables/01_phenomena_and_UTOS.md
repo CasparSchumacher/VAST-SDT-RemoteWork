@@ -109,11 +109,11 @@ Higher levels of intrinsic (self-determined) motivation are positively associate
 
 **Evidence strength:**  
 Moderate. Gagné et al. cite this relationship as a consistent downstream outcome of high-quality motivation, based on established SDT literature. However, it is not formally elaborated within the reviewed theory, and mechanisms (e.g., engagement, alignment) remain unspecified.
-```plaintext
-**VAST representation:**
-```
-INTRINSIC_MOTIVATION →r JOB_SATISFACTION
 
+**VAST representation:**
+```plaintext
+INTRINSIC_MOTIVATION →r JOB_SATISFACTION
+```
 
 
 
