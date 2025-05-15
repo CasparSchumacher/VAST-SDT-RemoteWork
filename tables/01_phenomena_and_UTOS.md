@@ -22,9 +22,9 @@ Structured remote or hybrid work can enhance employees’ autonomy through incre
 Moderate–strong. Theoretically grounded and supported by workplace studies. Moderated by implementation quality.
 
 **VAST representation:**
-
+```plaintext
 HYBRID_WORK_CONTEXT →c NEED_SATISFACTION_AUTONOMY
-
+```
 
 ## **P2 – Remote Work and Competence Frustration** 
 
@@ -44,10 +44,10 @@ When remote work is poorly implemented, disruptions such as communication overlo
 Moderate. Gagné et al. (2022) identify multiple plausible mechanisms, including digital friction, multitasking, and malfunctioning tools. While these are theoretically sound and intuitively compelling, the empirical evidence base remains scattered and non-causal.
 
 **VAST representation:**
-
+```plaintext
 REMOTE_WORK_CONTEXT →c CONTEXTUAL_COMPETENCE_THREATS
 CONTEXTUAL_COMPETENCE_THREATS →c (–) NEED_SATISFACTION_COMPETENCE
-
+```
 ## P3 – Remote Work and Relatedness Frustration
 
 **Short description:**  
@@ -66,10 +66,10 @@ Remote work can reduce opportunities for informal interaction, social support, a
 Moderate. Gagné et al. (2022) present this link as a core risk of remote work, especially when long-term virtual setups fail to offer compensatory social structures. Although intuitive and widely supported in applied literature, the empirical causal chain is not yet formally established.
 
 **VAST representation:**
-
+```plaintext
 REMOTE_WORK_CONTEXT →c SOCIAL_DISCONNECTION_RISK
 SOCIAL_DISCONNECTION_RISK →c (–) NEED_SATISFACTION_RELATEDNESS
-
+```
 ## P4 – Need Satisfaction → Self-Determined Motivation
 
 **Short description:**  
@@ -88,11 +88,11 @@ Satisfaction of the three basic psychological needs—autonomy, competence, and 
 Strong. This phenomenon is a foundational claim of Self-Determination Theory (Deci & Ryan, 2000) and is reaffirmed by Gagné et al. (2022) in applied organizational settings. Multiple studies support the independent contributions of each need to motivational quality.
 
 **VAST representation:**
-
+```plaintext
 NEED_SATISFACTION_AUTONOMY    →c INTRINSIC_MOTIVATION
 NEED_SATISFACTION_COMPETENCE  →c INTRINSIC_MOTIVATION
 NEED_SATISFACTION_RELATEDNESS →c INTRINSIC_MOTIVATION
-
+```
 ## P5 – Intrinsic Motivation → Job Satisfaction
 
 **Short description:**  
@@ -109,9 +109,9 @@ Higher levels of intrinsic (self-determined) motivation are positively associate
 
 **Evidence strength:**  
 Moderate. Gagné et al. cite this relationship as a consistent downstream outcome of high-quality motivation, based on established SDT literature. However, it is not formally elaborated within the reviewed theory, and mechanisms (e.g., engagement, alignment) remain unspecified.
-
+```plaintext
 **VAST representation:**
-
+```
 INTRINSIC_MOTIVATION →r JOB_SATISFACTION
 
 
