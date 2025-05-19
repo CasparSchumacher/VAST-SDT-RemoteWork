@@ -1,29 +1,15 @@
 # Variable Table
 
-This table defines each construct in the VAST display using formal variable specifications. Following Stevens’ (1946) typology, each variable is classified by type, with defined range and semantic anchors. Decisions are made to align with the theoretical structure proposed by Gagné et al. (2022), and all modeling assumptions are made explicit.
+This table defines each construct from the VAST display as a simulation-ready variable. It specifies the scale type (following Stevens, 1946), numeric range, and semantic anchors. Decisions follow Schönbrodt’s (2023) formalization guide and reflect both the verbal theory in Gagné et al. (2022) and established SDT measurement practices.
 
-| Construct in VAST display | Shortname | Type | Range/values | Anchors |
+| Construct in VAST display | Shortname | Type | Range/Values | Anchors |
 |---------------------------|-----------|------|---------------|---------|
 | NEED_SATISFACTION_AUTONOMY | autonomy | Interval | [0; 1] | 0 = fully controlled; 1 = fully autonomous |
 | NEED_SATISFACTION_COMPETENCE | competence | Interval | [0; 1] | 0 = ineffective; 1 = competent/mastery |
 | NEED_SATISFACTION_RELATEDNESS | relatedness | Interval | [0; 1] | 0 = socially isolated; 1 = connected/belonging |
 | CONTEXTUAL_COMPETENCE_THREATS | comp_threats | Ratio | [0; 1] | 0 = no barriers; 1 = high disruption load |
-| SOCIAL_DISCONNECTION_RISK | disconnection | Ratio | [0; 1] | 0 = strong embeddedness; 1 = complete isolation |
+| SOCIAL_DISCONNECTION_RISK | disconnection | Interval | [0; 1] | 0 = strong embeddedness; 1 = highly disconnected |
 | INTRINSIC_MOTIVATION | motivation | Interval | [0; 1] | 0 = not intrinsically motivated; 1 = fully intrinsic |
-| JOB_SATISFACTION | satisfaction | Interval | [0; 1] | 0 = dissatisfied; 1 = highly satisfied |
+| JOB_SATISFACTION | satisfaction | Interval | [-1; 1] | -1 = strongly dissatisfied; 0 = neutral; 1 = highly satisfied |
 | REMOTE_WORK_CONTEXT | remote | Ratio | [0; 1] | 0 = fully on-site; 1 = fully remote |
 | HYBRID_WORK_CONTEXT | hybrid | Nominal (binary) | {0, 1} | 0 = not hybrid; 1 = hybrid mode |
-
-
-**Modeling Note – Hybrid Work Context (VAST perspective):**
-
-In this model, `HYBRID_WORK_CONTEXT` is treated as a nominal (binary) variable rather than a midpoint value on a continuous `REMOTE_WORK_CONTEXT` scale (e.g., hybrid = 0.5). Although representing hybrid work as a numerical midpoint would simplify simulations and permit interpolation, it would introduce an implicit **assumption of continuity and linearity** that is neither stated nor supported in the original theory by Gagné et al. (2022).
-
-From a VAST perspective, this modeling decision aligns with Leising et al.’s (2023) core principles: formal models should make **all assumptions explicit**, avoid **implicit structure**, and reflect the **specific perspective and vocabulary** of the theorist when reconstructing their theory. Gagné et al. describe hybrid work as a **qualitatively distinct form of work design**—not merely as “partially remote.” Hybrid work is theorized to offer **unique advantages** (e.g., high autonomy and relatedness), which cannot be captured by interpolating between fully on-site and fully remote work.
-
-By treating `HYBRID_WORK_CONTEXT` as a **separate binary input construct**, the model:
-- Reflects Gagné’s categorical framing of work modes
-- Avoids encoding unjustified quantitative relationships
-- Follows VAST’s goal of **semantic clarity and modularity**
-
-This design decision also highlights a **prototypical challenge in VAST modeling**: when verbal theories are underspecified (e.g., lacking scale structure), the formalizer must choose between parsimony and faithfulness to the original theory. In line with Schönbrodt’s guidance, this model prioritizes theoretical clarity and explicitness over mathematical convenience.
