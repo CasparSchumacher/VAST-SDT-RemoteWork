@@ -7,10 +7,10 @@ This table defines each construct from the VAST display as a simulation-ready va
 | NEED_SATISFACTION_AUTONOMY | autonomy | Interval | [0; 1] | 0 = fully controlled; 1 = fully autonomous |
 | NEED_SATISFACTION_COMPETENCE | competence | Interval | [0; 1] | 0 = ineffective; 1 = competent/mastery |
 | NEED_SATISFACTION_RELATEDNESS | relatedness | Interval | [0; 1] | 0 = socially isolated; 1 = connected/belonging |
-| AUTONOMY_SUPPORT | auto_support | Interval | [0; 1] |0 = highly controlling / no support; 1 = strongly autonomy-supportive |
-| CONTEXTUAL_COMPETENCE_THREATS | comp_threats | Ratio | [0; 1] | 0 = no barriers; 1 = high disruption load |
-| SOCIAL_DISCONNECTION_RISK | disconnection | Interval | [0; 1] | 0 = strong embeddedness; 1 = highly disconnected |
+| AUTONOMY_SUPPORT | auto_support | Interval | [0; 1] | 0 = highly controlling / no support; 1 = strongly autonomy-supportive |
+| CONTEXTUAL_COMPETENCE_CONDITIONS | comp_conditions | Interval (bipolar) | [-1; 1] | -1 = high disruption load; 0 = neutral; 1 = strong competence support |
+| SOCIAL_CONNECTION_CONDITIONS | connection_conditions | Interval (bipolar) | [-1; 1] | -1 = high social isolation; 0 = neutral; 1 = strong social embeddedness |
 | INTRINSIC_MOTIVATION | motivation | Interval | [0; 1] | 0 = not intrinsically motivated; 1 = fully intrinsic |
 | JOB_SATISFACTION | satisfaction | Interval | [-1; 1] | -1 = strongly dissatisfied; 0 = neutral; 1 = highly satisfied |
-| REMOTE_WORK_CONTEXT | remote | Ratio | [0; 1] | 0 = fully on-site; 1 = fully remote |
+| REMOTE_WORK_CONTEXT | remote | Nominal (binary) | {0, 1} | 0 = fully on-site; 1 = remote work |
 | HYBRID_WORK_CONTEXT | hybrid | Nominal (binary) | {0, 1} | 0 = not hybrid; 1 = hybrid mode |
