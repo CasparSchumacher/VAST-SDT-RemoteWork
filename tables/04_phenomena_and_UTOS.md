@@ -7,70 +7,79 @@ This document lists the five central empirical phenomena that the model is inten
 ## **P1 – Remote Work and Autonomy Need Satisfaction**
 
 **Short description:**  
-Structured remote or hybrid work can enhance employees’ autonomy through increased flexibility in time, location, and task execution.
+Structured remote or hybrid work can enhance or undermine employees’ autonomy depending on the degree of flexibility and autonomy support embedded in the work design.
 
 **UTOS**
 
 | Component | Description |
 |----------|-------------|
 | Units | Knowledge workers in flexible, digital jobs |
-| Treatments | Hybrid or remote work with autonomy-supportive design |
-| Outcomes | Satisfaction of autonomy need (e.g., volition, self-initiation) |
+| Treatments | Hybrid or remote work, varying in autonomy-supportive design |
+| Outcomes | Satisfaction (or frustration) of autonomy need (e.g., volition, self-initiation) |
 | Settings | Post-2020, hybrid-enabled organizational environments |
 
 **Evidence strength:**  
-Moderate–strong. Theoretically grounded and supported by workplace studies. Moderated by implementation quality.
+Moderate–strong. Theoretically grounded and supported by workplace studies. Moderated by implementation quality and managerial support.
 
 **VAST representation:**
 ```plaintext
-HYBRID_WORK_CONTEXT →c NEED_SATISFACTION_AUTONOMY
+REMOTE_WORK_CONTEXT →c AUTONOMY_SUPPORT
+AUTONOMY_SUPPORT →c NEED_SATISFACTION_AUTONOMY
 ```
 
-## **P2 – Remote Work and Competence Frustration** 
+---
+
+## **P2 – Remote Work and Competence Need Satisfaction**
 
 **Short description:**  
-When remote work is poorly implemented, disruptions such as communication overload, vague expectations, and technology breakdowns can undermine employees’ perceived competence.
+Remote work can either support competence satisfaction (e.g., through digital learning opportunities) or undermine it (e.g., through communication overload, tech failures), depending on how the work environment is structured.
 
 **UTOS**
 
 | Component | Description |
 |----------|-------------|
 | Units | Remote workers in cognitively demanding or autonomy-critical roles |
-| Treatments | Fragmented communication, task ambiguity, tech failures |
-| Outcomes | Lower competence need satisfaction |
+| Treatments | Varying quality of digital communication, role clarity, and technology support |
+| Outcomes | Satisfaction (or frustration) of competence need |
 | Settings | Digitally mediated, distributed, or asynchronous work teams |
 
 **Evidence strength:**  
-Moderate. Gagné et al. (2022) identify multiple plausible mechanisms, including digital friction, multitasking, and malfunctioning tools. While these are theoretically sound and intuitively compelling, the empirical evidence base remains scattered and non-causal.
+Moderate. Gagné et al. (2022) identify plausible mechanisms for both positive and negative effects, including digital friction, multitasking, malfunctioning tools, and access to online learning. While theoretically robust, empirical causal evidence remains scattered.
 
 **VAST representation:**
 ```plaintext
-REMOTE_WORK_CONTEXT →c CONTEXTUAL_COMPETENCE_THREATS
-CONTEXTUAL_COMPETENCE_THREATS →c (–) NEED_SATISFACTION_COMPETENCE
+REMOTE_WORK_CONTEXT →c CONTEXTUAL_COMPETENCE_CONDITIONS
+CONTEXTUAL_COMPETENCE_CONDITIONS →c NEED_SATISFACTION_COMPETENCE
 ```
-## P3 – Remote Work and Relatedness Frustration
+
+---
+
+## **P3 – Remote Work and Relatedness Need Satisfaction**
 
 **Short description:**  
-Remote work can reduce opportunities for informal interaction, social support, and team belonging, which may lead to lower satisfaction of the need for relatedness—particularly when virtual collaboration lacks intentional structure.
+Remote work can reduce or enhance opportunities for social connection depending on the quality of virtual collaboration structures and intentional social design.
 
 **UTOS**
 
 | Component | Description |
 |----------|-------------|
 | Units | Remote and hybrid employees in team-based environments |
-| Treatments | Absence of informal contact, weak virtual cohesion, poor interaction design |
-| Outcomes | Reduced relatedness need satisfaction |
-| Settings | Distributed or remote-first teams, low social structure |
+| Treatments | Varying quality of virtual cohesion, informal contact, and social structure |
+| Outcomes | Satisfaction (or frustration) of relatedness need |
+| Settings | Distributed or remote-first teams, variable social infrastructure |
 
 **Evidence strength:**  
-Moderate. Gagné et al. (2022) present this link as a core risk of remote work, especially when long-term virtual setups fail to offer compensatory social structures. Although intuitive and widely supported in applied literature, the empirical causal chain is not yet formally established.
+Moderate–strong. Gagné et al. (2022) highlight the central role of structured social support in remote contexts. Although intuitive and widely acknowledged in organizational practice, the empirical causal chain needs further direct testing.
 
 **VAST representation:**
 ```plaintext
-REMOTE_WORK_CONTEXT →c SOCIAL_DISCONNECTION_RISK
-SOCIAL_DISCONNECTION_RISK →c (–) NEED_SATISFACTION_RELATEDNESS
+REMOTE_WORK_CONTEXT →c SOCIAL_CONNECTION_CONDITIONS
+SOCIAL_CONNECTION_CONDITIONS →c NEED_SATISFACTION_RELATEDNESS
 ```
-## P4 – Need Satisfaction → Self-Determined Motivation
+
+---
+
+## **P4 – Need Satisfaction → Self-Determined Motivation**
 
 **Short description:**  
 Satisfaction of the three basic psychological needs—autonomy, competence, and relatedness—independently contributes to more self-determined (i.e., intrinsic or internalized) motivation.
@@ -93,7 +102,10 @@ NEED_SATISFACTION_AUTONOMY    →c INTRINSIC_MOTIVATION
 NEED_SATISFACTION_COMPETENCE  →c INTRINSIC_MOTIVATION
 NEED_SATISFACTION_RELATEDNESS →c INTRINSIC_MOTIVATION
 ```
-## P5 – Intrinsic Motivation → Job Satisfaction
+
+---
+
+## **P5 – Intrinsic Motivation → Job Satisfaction**
 
 **Short description:**  
 Higher levels of intrinsic (self-determined) motivation are positively associated with greater job satisfaction, though the specific mechanism is not the focus of Gagné et al. (2022).
@@ -112,8 +124,5 @@ Moderate. Gagné et al. cite this relationship as a consistent downstream outcom
 
 **VAST representation:**
 ```plaintext
-INTRINSIC_MOTIVATION →r JOB_SATISFACTION
+INTRINSIC_MOTIVATION →p JOB_SATISFACTION
 ```
-
-
-
