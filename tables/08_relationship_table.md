@@ -1,15 +1,18 @@
 # Relationship Table
 
-This table defines a mathematical function for each endogenous variable in the VAST model. Each function specifies how the variable is determined by its predictors. Parameters are structured to maximize readability and modular simulation in line with Schönbrodt’s and Leising’s recommendations.
+This table defines all relationships between constructs in the VAST model. Each relation is classified by type (causal `c`, probabilistic `p`, or reasoning `r`), strength, and supporting words/phrases from Gagné et al. (2022). Moderators are noted where applicable.
 
-| Target Variable                  | Predictor(s)                                            | Formula                               | Free Parameter(s)        | Constraint(s)            | Justification |
-|----------------------------------|----------------------------------------------------------|----------------------------------------|---------------------------|--------------------------|---------------|
-| CONTEXTUAL_COMPETENCE_THREATS   | REMOTE_WORK_CONTEXT                                     | T = β × remote                         | β ∈ [0, 1]                | T ∈ [0, 1]               | Remote exposure generates risk for competence disruptions (Gagné, 2022, p. 14) |
-| SOCIAL_DISCONNECTION_RISK       | REMOTE_WORK_CONTEXT                                     | D = β × remote                         | β ∈ [0, 1]                | D ∈ [0, 1]               | Disconnection risk increases proportionally with remoteness (Gagné, 2022, p. 15) |
-| AUTONOMY_SUPPORT_IN_REMOTE_WORK | REMOTE_WORK_CONTEXT                                     | A_supp = β × remote                    | β ∈ [0, 1]                | A_supp ∈ [0, 1]          | Autonomy-supportive design is activated under remote conditions (Gagné, 2022, p. 15) |
-| NEED_SATISFACTION_AUTONOMY      | HYBRID_WORK_CONTEXT, AUTONOMY_SUPPORT_IN_REMOTE_WORK    | A = α × hybrid + γ × A_supp            | α, γ ∈ [0, 1]             | A ∈ [0, 1]               | Additive effect of hybrid and autonomy-supportive remote work (Gagné, 2022, p. 15) |
-| NEED_SATISFACTION_COMPETENCE    | CONTEXTUAL_COMPETENCE_THREATS                           | C = 1 – β × T                          | β ∈ [0, 1]                | C ∈ [0, 1]               | Threats reduce competence linearly (Gagné, 2022, p. 14) |
-| NEED_SATISFACTION_RELATEDNESS   | SOCIAL_DISCONNECTION_RISK                               | R = 1 – β × D                          | β ∈ [0, 1]                | R ∈ [0, 1]               | Disconnection reduces relatedness linearly (Gagné, 2022, p. 15) |
-| NEED_SATISFACTION_RELATEDNESS   | HYBRID_WORK_CONTEXT                                     | R = R + β × hybrid                     | β ∈ [0, 1]                | R ∈ [0, 1]               | Hybrid work supports relatedness through collaboration (Gagné, 2022, p. 15) |
-| INTRINSIC_MOTIVATION            | AUTONOMY, COMPETENCE, RELATEDNESS                       | M = w₁ × A + w₂ × C + w₃ × R           | w₁, w₂, w₃ ∈ [0, 1]       | w₁ + w₂ + w₃ = 1         | Additive contributions of SDT needs (Deci & Ryan, 2000; Gagné, 2022) |
-| JOB_SATISFACTION                | INTRINSIC_MOTIVATION                                    | S = θ × M                              | θ ∈ [0, 1]                | S ∈ [–1, 1]              | Reasoning link: motivation predicts satisfaction (Gagné, 2022, p. 7) |
+| From | To | Type (strength) | Key words (strength indicator) | Moderator | Comment |
+|-----|----|-----------------|--------------------------------|-----------|---------|
+| REMOTE_WORK_CONTEXT | CONTEXTUAL_COMPETENCE_CONDITIONS | c (weak) | might thwart | – | Remote work can introduce competence barriers under poor conditions |
+| REMOTE_WORK_CONTEXT | SOCIAL_CONNECTION_CONDITIONS | c (moderate) | can present | – | Remote work can challenge relatedness if not well-structured |
+| REMOTE_WORK_CONTEXT | AUTONOMY_SUPPORT | r (moderate) | important to | – | Theoretical recommendation for autonomy-supportive design |
+| HYBRID_WORK_CONTEXT | NEED_SATISFACTION_AUTONOMY | c (moderate) | seems to offer | – | Hybrid work can promote autonomy if well designed |
+| HYBRID_WORK_CONTEXT | NEED_SATISFACTION_RELATEDNESS | c (moderate) | seems to offer | – | Hybrid work can promote relatedness if well structured |
+| AUTONOMY_SUPPORT | NEED_SATISFACTION_AUTONOMY | c (strong) | leads to | Emotional Stability (moderator) | Autonomy-supportive management increases autonomy satisfaction |
+| CONTEXTUAL_COMPETENCE_CONDITIONS | NEED_SATISFACTION_COMPETENCE | c (weak) | might thwart | – | Competence conditions influence competence satisfaction |
+| SOCIAL_CONNECTION_CONDITIONS | NEED_SATISFACTION_RELATEDNESS | c (strong) | lead to | – | Social connection conditions influence relatedness satisfaction |
+| NEED_SATISFACTION_AUTONOMY | INTRINSIC_MOTIVATION | c (strong) | significantly related to | – | Core SDT causal link |
+| NEED_SATISFACTION_COMPETENCE | INTRINSIC_MOTIVATION | c (strong) | significantly related to | – | Core SDT causal link |
+| NEED_SATISFACTION_RELATEDNESS | INTRINSIC_MOTIVATION | c (strong) | significantly related to | – | Core SDT causal link |
+| INTRINSIC_MOTIVATION | JOB_SATISFACTION | p (moderate) | positively associated with | – | Motivational quality is associated with job satisfaction |
