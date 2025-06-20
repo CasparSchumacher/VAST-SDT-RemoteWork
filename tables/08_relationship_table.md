@@ -9,6 +9,7 @@ This table defines all relationships between constructs in the VAST model. Each 
 | REMOTE_WORK_CONTEXT | CONTEXTUAL_COMPETENCE_CONDITIONS | c (weak) | might thwart | – | Remote work can introduce competence barriers under poor conditions. Source: Gagné et al. (2022) |
 | REMOTE_WORK_CONTEXT | SOCIAL_CONNECTION_CONDITIONS | c (moderate) | can present | – | Remote work can challenge relatedness if not well-structured. Source: Gagné et al. (2022) |
 | REMOTE_WORK_CONTEXT | AUTONOMY_SUPPORT | c (moderate) | reinterpreted from "important to" | – | Reclassified as causal link for DAG translation. Reflects that autonomy-supportive practices may be developed in response to remote work. Measurement must occur after remote work adoption. See main text (ISSUE 2). |
+| REMOTE_WORK_CONTEXT | NEED_SATISFACTION_AUTONOMY | c (moderate) | experience increased autonomy | – | Structural effect: absence of workplace routines increases autonomy. Source: Gagné et al. (2022), p. 7 |
 | HYBRID_WORK_CONTEXT | NEED_SATISFACTION_AUTONOMY | c (moderate) | seems to offer | – | Hybrid work can promote autonomy if well designed. Source: Gagné et al. (2022) |
 | HYBRID_WORK_CONTEXT | NEED_SATISFACTION_RELATEDNESS | c (moderate) | seems to offer | – | Hybrid work can promote relatedness if well structured. Source: Gagné et al. (2022) |
 | AUTONOMY_SUPPORT | NEED_SATISFACTION_AUTONOMY | c (strong) | leads to | Emotional Stability (moderator) | Autonomy-supportive management increases autonomy satisfaction. Source: Gagné et al. (2022) |
@@ -21,3 +22,4 @@ This table defines all relationships between constructs in the VAST model. Each 
 | NEED_SATISFACTION_COMPETENCE | INTRINSIC_MOTIVATION | c (strong) | significantly related to | – | Core SDT causal link. Source: Gagné et al. (2022) |
 | NEED_SATISFACTION_RELATEDNESS | INTRINSIC_MOTIVATION | c (strong) | significantly related to | – | Core SDT causal link. Source: Gagné et al. (2022) |
 | INTRINSIC_MOTIVATION | JOB_SATISFACTION | p (moderate) | correlation r = 0.48 | – | Probabilistic relation based on meta-analytic evidence. Source: Van den Broeck et al. (2021) |
+
