@@ -2,7 +2,7 @@
 
 This table lists quotes from Gagné et al. (2022) that support the inclusion of each construct and relationship in the VAST model. Each quote is tagged by type (Phenomenon, Concept, or Relationship), labeled, and referenced. The table follows the formalization structure proposed by Schönbrodt (2023).
 
-| ID  | Type | Short name | Quote | Reference | rel. type (strength) | Key words (strength indicator) | Comment | Incl. (Y/N) |
+| ID  | Type | Label | Quote | Reference | rel. type (strength) | Key words (strength indicator) | Comment | Incl. (Y/N) |
 |-----|------|------------|-------|-----------|----------------------|-------------------------------|---------|-------------|
 | A1  | C    | NEED_SATISFACTION_AUTONOMY | “agents of their own behaviour as opposed to a ‘pawn’ of external pressures” | Gagné et al. (2022), p. 3 | – | – | Core SDT definition | Y |
 | A2  | C    | NEED_SATISFACTION_COMPETENCE | “effective and masters of their environment (need for competence)” | Gagné et al. (2022), p. 3 | – | – | Core SDT definition | Y |
