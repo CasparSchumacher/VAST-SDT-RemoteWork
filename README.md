@@ -19,7 +19,7 @@ The theoretical basis is derived primarily from Gagné et al. (2022), who propos
 - `code/` – Simulation code for model evaluation
 - `docs/` – Shared outputs and diagrams
 - `tables/` – Construct Source Table, Variable Table, Relationship Table
-- `final work/´ - final work in .qmd, .html and .pdf format 
+- `final work/` - final work in .qmd, .html and .pdf format 
 - `README.md` – Project overview and setup instructions
 - `CITATION.cff` – Citation file for referencing this project
 
