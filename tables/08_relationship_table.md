@@ -2,7 +2,7 @@
 
 This table defines all relationships between constructs in the VAST model. Each relation is classified by type (causal `c`, probabilistic `p`, or reasoning `r`), strength, and supporting words/phrases from Gagné et al. (2022). Moderators and correlation values are noted where applicable.
 
-**Note:** The link from `REMOTE_WORK_CONTEXT` to `AUTONOMY_SUPPORT` was originally formalized as a reasoning link (`r`) in the VAST model. To preserve this pathway in the DAG representation—necessary for explaining observed inter-need correlations—it is reclassified here as a **causal link (`c`)**, reflecting a plausible reinterpretation in which autonomy-supportive practices evolve as a downstream response to remote work implementation. This change is explained in the main text (ISSUE 2 discussion) and flagged here as a theoretically grounded modeling choice with implications for temporal measurement.
+**Note:** The link from `REMOTE_WORK_CONTEXT` to `AUTONOMY_SUPPORT` was originally formalized as a reasoning link (`r`) in the VAST model. To preserve this pathway in the DAG representation - necessary for explaining observed inter-need correlations - it is reclassified here as a **causal link (`c`)**, reflecting a plausible reinterpretation in which autonomy-supportive practices evolve as a downstream response to remote work implementation. This change is explained in the main text (ISSUE 2 discussion) and flagged here as a theoretically grounded modeling choice with implications for temporal measurement.
 
 | From | To | Type (strength) | Key words (strength indicator) | Moderator | Comment |
 |------|----|------------------|---------------------------------|-----------|---------|
