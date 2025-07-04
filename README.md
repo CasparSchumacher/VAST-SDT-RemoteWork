@@ -1,5 +1,5 @@
 # VAST-SDT-RemoteWork (short)
-Formal VAST-based reconstruction of Self-Determination Theory in the context of remote work, based on Gagner et. al (2022). Following the modeling framework by Schönbrodt (2023).
+Formal VAST-based reconstruction of Self-Determination Theory in the context of remote work, based on Gagné et al. (2022). Following the modeling framework by Schönbrodt (2023).
 
 # VAST-SDT-RemoteWork
 
