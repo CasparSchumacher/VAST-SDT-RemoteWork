@@ -16,17 +16,14 @@ The theoretical basis is derived primarily from Gagné et al. (2022), who propos
 
 ## Project Structure
 
+- `code/` – Simulation code for model evaluation
 - `docs/` – Shared outputs and diagrams
 - `tables/` – Construct Source Table, Variable Table, Relationship Table
-- `R/` – Simulation code for model evaluation
+- `final work/´ - final work in .qmd, .html and .pdf format 
 - `README.md` – Project overview and setup instructions
 - `CITATION.cff` – Citation file for referencing this project
 
-## Shared Drive Folder
-
-All working documents (e.g., Construct Source Table, Variable Table, supplementary notes) are maintained collaboratively in the following Google Drive folder:
-
-[Google Drive Folder for collaborative documents](https://drive.google.com/drive/folders/1PJP1GLQeB3QZC2SFlwPi-otNjyc5H7FK?usp=sharing)
+The notation follows the formalization Steps and is ought to complement the final work. 
 
 ## License
 
