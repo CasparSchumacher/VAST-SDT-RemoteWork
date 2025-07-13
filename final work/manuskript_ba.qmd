@@ -1,0 +1,520 @@
+---
+title: "A Demonstration and Integration of VAST-Diagrams and DAGs: Formalizing Self-Determination Theory in Modern Work Environments"
+shorttitle: "Integrating VAST and DAGs to formalize SDT"
+author:
+  - name: Caspar Nikolaus Ralph Schumacher
+    corresponding: true
+    orcid: 0009-0001-6316-5342
+    email: C.Schumacher@campus.lmu.de
+    affiliations:
+      - name: Ludwig-Maximilians-Universität München
+        department: Fakultät für Psychologie und Pädagogik
+        address: Leopoldstraße 13
+        city: Munich
+        region: 
+        country: Germany
+        postal-code: 80539
+author-note:
+  status-changes: 
+    affiliation-change: ~
+    deceased: ~
+  disclosures:
+    study-registration: ~
+    data-sharing: ~
+    related-report: ~
+    conflict-of-interest: ~
+    financial-support: ~
+    gratitude: ~
+    authorship-agreements: ~
+abstract: "Many psychological theories lack the structural precision required for rigorous empirical testing, a deficit often referred to as the theory crisis. This thesis investigates whether formal modeling tools can help address this problem by applying the Visual Argument Structure Tool (VAST) to the Self-Determination Theory (SDT) in the context of remote work. A comprehensive VAST diagram is developed and systematically translated into Directed Acyclic Graphs (DAGs) to highlight key structural challenges (Issues) in the proposed theory-to-model workflow. The resulting formalization reveals several inferential ambiguities and translation issues and presents ideas on how to handle these. A simulation-based DAG analysis is conducted to further show how these issues affect causal identification. Together, the findings support the use of VAST and DAGs as complementary tools for improving theoretical clarity and testability in psychology."
+keywords: [Self-Determination Theory, Visual Argument Structure Tool, Directed Acyclic Graphs, Theory Crisis, Formal Modeling, VAST, DAG]
+bibliography: references.bib
+format:
+  apaquarto-pdf:
+    documentmode: man
+    toc: true
+toc-depth: 2 
+---
+
+<!-- The introduction should not have a level-1 heading such as Introduction. -->
+
+Scientific theories are essential for organizing knowledge, guiding empirical research, and the systematic interpretation of findings. In psychology, however, many theories remain vague, underspecified, or empirically untestable. While methodological reforms, such as improved statistical practices, open science, and replication initiatives have gained traction, theoretical development is still lagging behind.
+
+This discrepancy has led to what several scholars describe as a “theory crisis” in psychology [e.g.,@muthukrishnaProblemTheory2019; @reberTheoryCrisisPsychology2016; @oberauerAddressingTheoryCrisis2019].
+Rather than attributing this crisis to individual shortcomings, @eronenTheoryCrisisPsychology2021 argue that it reflects deeper structural issues. Specifically, they highlight three interrelated barriers to theory construction: the lack of robust and replicable phenomena, widespread conceptual imprecision in psychological constructs, and persistent difficulties with causal inference. Together, these factors make it unusually difficult to formulate precise, testable, and explanatory theories in psychology.
+
+@oberauerAddressingTheoryCrisis2019 similarly emphasize the need for more rigorous theoretical work. They point out that many empirical studies are not designed to test theories, but merely document effects. When theories are invoked, they are often too vague to yield clear predictions. As a remedy, they call for the use of formal representations - verbal, mathematical, or graphical - to articulate assumptions and link them to observable data structures.
+
+Building on this view, @borsboomTheoryConstructionMethodology2021 propose a systematic methodology for theory construction that treats the development of psychological theories as a structured process. Their framework emphasizes the explicit specification of target systems, conceptual elements, and lawful relations, and underscores the need for training researchers in theory-building skills.
+
+Taken together, these perspectives suggest that psychology’s theory crisis is not merely a lack of creativity or effort, but a methodological and structural challenge. One that demands tools capable of making theoretical assumptions more transparent, coherent, and empirically tractable.
+
+This thesis addresses these challenges by exploring two visual tools for formalizing psychological theories: the Visual Argument Structure Tool (VAST) and Directed Acyclic Graphs (DAGs). Using Self-Determination Theory (SDT) as a case example, the thesis investigates how these tools differ in how they represent theoretical assumptions, clarify causal structures, and support empirical reasoning. The goal is to contribute to the broader effort of making psychological theory more precise, transparent, and useful for guiding research.
+
+## Visual Argument Structure Tool (VAST)
+VAST was developed by Daniel Leising and colleagues at Technische Universität Dresden to improve the structure and clarity of psychological theories [@leisingVisualArgumentStructure2023a]. Subsequent work extends its methodological foundations and provides practical guidance for scientific applications [@leisingTentativeRoadmapConsensus2024;  @leisingHowFormalizeVerbal2024]. The present thesis draws on all three sources as the conceptual and procedural basis for applying VAST.
+
+At its core, VAST provides a visual framework for representing theoretical assumptions in a structured and explicit way. It distinguishes between different types of relationships,  different types of entities, including concepts, empirical variables, and normative statements, which helps clarify assumptions that often remain implicit in verbal formulations and allows for a more nuanced depiction of theory than conventional models offer.
+
+Importantly, VAST accommodates varying degrees of precision. It supports both well-defined and tentative links, making it particularly suitable for early stages of theory development. Rather than enforcing premature formalization, it aims to enhance transparency and communicability. This makes VAST useful not only for theory articulation but also as a foundation for subsequent formal modeling and empirical testing [@leisingHowFormalizeVerbal2024].
+
+A deeper understanding of VAST’s representational logic is crucial for appreciating how it complements other formal tools, such as Directed Acyclic Graphs (DAGs).
+
+## Directed Acyclic Graphs (DAGs)
+DAGs are a formal tool for representing and reasoning about causal relationships, particularly in observational research where experimental manipulation is infeasible or unethical [@rohrerThinkingClearlyCorrelations2018]. DAGs were originally developed by Judea Pearl in the context of computer science [@pearlBookWhyNew2020]. Since then, they have become central to contemporary causal inference and are increasingly advocated for use in psychology [@groszTabooExplicitCausal2020].
+A DAG consists of nodes (variables) and directed edges (causal assumptions) forming an acyclic graph, meaning no feedback loops exist. This structure allows researchers to formalize theoretical assumptions and derive testable implications from them [@rohrerThinkingClearlyCorrelations2018].
+The methodological strength of DAGs rests on two foundational concepts: d-separation, a graphical criterion used to identify whether two variables are conditionally independent given a set of covariates, and the backdoor criterion, a specialized application of d-separation that determines which variables must be controlled for to block non-causal (i.e., backdoor) paths from a treatment to an outcome. Thus they enable valid causal inference without introducing bias from colliders or overadjustment [@hernanCausalInferenceWhat2025; @shrierReducingBiasDirected2008].
+A major strength of DAGs lies in their capacity to link theory and data. Once a DAG is specified, its implications for conditional (in)dependence can be checked against empirical patterns, enabling researchers to evaluate whether the assumed causal structure aligns with observed evidence [@textorAdjustmentCriteriaCausal2012]. Tools such as [Dagitty.net](https://dagitty.net/) and its R-package extension [@textorRobustCausalInference2016] support this process by automating adjustment set selection and visualizing biasing paths.
+However, DAGs do not generate evidence - they encode assumptions. Their usefulness hinges entirely on the plausibility of the causal structure specified, which depends on strong domain knowledge and theoretical clarity. A DAG is only as strong as the theoretical network it encodes [@rohrerThinkingClearlyCorrelations2018; @textorAdjustmentCriteriaCausal2012].
+Compared to VAST, which provides a broader framework for mapping theoretical arguments, DAGs focus specifically on causal inference and statistical implications. As such, the two approaches serve complementary purposes in theory development and empirical analysis. Their integration will be addressed in a subsequent chapter, where a DAG model will be developed and applied in the context of the present research on the Social-Determination Theory [@ryanSelfDeterminationTheoryFacilitation2000a]. 
+
+## Self-Determination Theory (SDT) in Modern Work Environments
+SDT is a comprehensive and widely cited theory of human motivation that has shaped large parts of psychological research since its development by Edward Deci and Richard Ryan in the 1980s [@ryanSelfDeterminationTheoryFacilitation2000a]. It posits that human flourishing depends on the satisfaction of three basic psychological needs: autonomy, competence, and relatedness. These needs are considered universal and essential for psychological growth, integrity, and well-being. Specifically, the need for autonomy refers to the experience of volition and self-endorsement of one's actions, competence involves the sense of effectiveness and mastery in one's activities, and relatedness captures the feeling of meaningful connection with others.
+
+A key contribution of SDT lies in its distinction between types of motivation. The theory differentiates between intrinsic motivation - engaging in an activity for its inherent interest or enjoyment - and extrinsic motivation, which is driven by instrumental outcomes. Importantly, extrinsic motivation is conceptualized as varying along a continuum of internalization, ranging from external regulation to integrated regulation. This continuum reflects the extent to which external motives become personally endorsed and thus self-determined [@ryanSelfDeterminationTheoryFacilitation2000a; @deciIntrinsicMotivationSelfDetermination1985].
+
+Extensive empirical research supports the core tenets of SDT. Meta-analyses have shown that satisfaction of the three psychological needs is associated with higher levels of self-determined motivation, better performance, greater well-being, and lower burnout [@vansteenkistePsychologicalGrowthVulnerability2013a; @gagneUnderstandingShapingFuture2022]. Because of its generality and empirical robustness, SDT has been applied across diverse psychological domains - from education to health to clinical psychology - and increasingly also to the domain of work.
+
+For the purpose of this thesis, SDT is examined specifically in the context of work motivation, where it provides a rich framework for understanding how organizational environments influence motivation and well-being. In particular, the theory is used to analyze the motivational consequences of changing work conditions under remote and hybrid work arrangements. As Gagné and colleagues argue in a recent integrative review, SDT is uniquely well-suited to address how work design, technology, and organizational practices affect workers’ psychological needs and, in turn, their motivation and performance [@gagneUnderstandingShapingFuture2022]. The review synthesizes evidence across multiple sectors and use cases, and outlines how SDT can inform the design of future work.
+
+To complement this theoretical perspective with empirical findings, this thesis also draws on a study by @brunelleDistanceMakesHeart2021, which examines how telework and office work influence need satisfaction and motivational outcomes.
+
+## Methodological Positioning and Related Work 
+Although both VAST and DAGs have been introduced with the goal of improving psychological theory construction, they occupy different roles in the scientific process and are differently established within the literature. DAGs have become a widely used standard for causal modeling and are frequently employed in empirical studies across psychology and related disciplines. Their methodological foundations and practical advantages are well documented [e.g., @hernanCausalInferenceWhat2025; @pearlBookWhyNew2020; @rohrerThinkingClearlyCorrelations2018], and their uptake has been supported by a growing number of tutorials and applied frameworks [@textorAdjustmentCriteriaCausal2012; @elwertGraphicalCausalModels2013; @groszTabooExplicitCausal2020].
+
+In contrast, VAST is a comparatively recent proposal [@leisingVisualArgumentStructure2023a] and has so far been discussed primarily in conceptual and methodological publications [@leisingHowFormalizeVerbal2024; @leisingTentativeRoadmapConsensus2024]. It addresses a different stage of scientific reasoning - namely, the verbal and structural articulation of theoretical assumptions - and has not yet been widely adopted outside its originating group. Although there are strong conceptual arguments for its usefulness, discussions of how VAST relates to existing formalisms, including DAGs, remain rare.
+
+To date, no systematic attempt exists in the literature to integrate VAST and DAGs within a unified modeling workflow. A notable exception is an open peer review of the VAST framework by @rohrerPeerReviewLeising2023, published via *Meta-Psychology*’s OSF-hosted review system. 
+
+\noindent In her review, Rohrer expresses skepticism regarding the added value of VAST as a notation system. She writes:
+
+> "It seems like this 'tool' is a rather ambitious project in that is seems to be meant to subsume other notational systems. I am personally a bit sceptical that such a tool is needed (I feel like DAGs + verbalization work fine for my personal purposes), [...]." (Rohrer, 2023, p. 4)
+
+\noindent Later in the review, she adds that the lack of conceptual clarity in psychological theorizing may stem less from missing tools and more from motivational or cultural factors:
+
+> “Personally, I don’t think so. I don’t think it’s a technological problem, it’s a motivational or at least cultural problem.” (Rohrer, 2023, p. 5)
+
+\noindent These remarks reflect a broader uncertainty within the field regarding how VAST is to be understood in relation to already established tools. In particular, Rohrer's critique highlights two unresolved questions: (1) whether VAST adds value beyond DAGs and verbal modeling, and (2) whether the lack of theoretical clarity in psychology can realistically be addressed through notation systems alone. While @leisingVisualArgumentStructure2023a emphasize the complementary nature of VAST and explicitly avoid reducing all theoretical claims to causal form, the concern about conceptual overlap and practical usefulness remains important.
+
+This thesis takes these open questions as a starting point and explores, for the first time, how VAST-based theory modeling and DAG-based causal inference might be meaningfully combined. Rather than treating the tools as competing systems, the present work investigates their potential integration across the stages of theorizing and empirical testing.
+
+# Development of a VAST Diagram for SDT in Remote Work after Gagné et al. (2022)
+This chapter documents the development of a VAST model for SDT in the context of modern work environments. The theoretical foundation for this VAST diagram draws from the already mentioned theoretical review on shaping the future of work with SDT [@gagneUnderstandingShapingFuture2022]. The formalization closely follows the framework outlined by @schonbrodtOverviewFormalizationSteps2024 and @leisingHowFormalizeVerbal2024, which emphasizes systematic reconstruction of verbal theories. All stages of the formalization, including construct definitions, relationship matrices, variable specifications, and the final VAST diagram, are made publicly available via GitHub: [https://github.com/CasparSchumacher/VAST-SDT-RemoteWork](https://github.com/CasparSchumacher/VAST-SDT-RemoteWork). This repository serves as an open documentation of the modeling process and facilitates reproducibility.
+
+## Step 1: Choice of Formalization Approach
+The first step in any formalization is to define the methodological approach. There are two principal strategies available: either formalizing an existing verbal theory as faithfully as possible, called *Narrative Theory Reconstruction (NTR)* or adopting a *Theory-Construction Model (TCM)* that builds a new theory based on robust empirical phenomena. The formalization presented here is a NTR. This decision was guided by the goal of systematically reconstructing the verbal theoretical propositions found in @gagneUnderstandingShapingFuture2022.
+
+#### Implementation in This Model
+Consistent with @schonbrodtOverviewFormalizationSteps2024 and @leisingHowFormalizeVerbal2024, I started by carefully interpreting the key theoretical claims made in the original review. The priority was to preserve the structure of the verbal theory without prematurely imposing corrections or empirical revisions. This meant reconstructing the intended argument faithfully, even if some claims may later appear underspecified or contestable when formalized.
+
+#### Challenges and Modeling Decisions
+A central challenge at this stage was balancing faithfulness to the original verbal theory with the requirement for formal precision. For example, while @gagneUnderstandingShapingFuture2022 offers a clear linkage between remote work and the satisfaction of psychological needs, the degree of specificity regarding mediators and moderators varies. To resolve this, I adopted a conservative stance as suggested by @leisingHowFormalizeVerbal2024. I included only those constructs and relationships explicitly supported by clear verbal claims, thereby avoiding speculative extensions, despite knowing that this could lead to insufficiencies in the explanatory capabilities of my visualization.
+
+Another challenge was whether to incorporate empirical refinements identified in existing literature on SDT [e.g., @vandenbroeckIntrinsicExtrinsicMotivation2021]. Following NTR principles, I deliberately excluded such empirical corrections to maintain a clear distinction between the original theoretical propositions by @gagneUnderstandingShapingFuture2022 and subsequent empirical validations that may be applied in later stages.
+
+Thus, the model presented remains a faithful formalization of the verbal claims made in @gagneUnderstandingShapingFuture2022, structured systematically using VAST without substantive alterations. All the additions made to my diagram that derive from other sources, will be explained accordingly. They are included for demonstrative purposes as they help illustrate core challenges in transferring from VAST to SDT, the central focus of this work.
+
+## Step 2: Limit Your Scope
+Formalization projects in psychology often suffer from excessive scope, which undermines clarity and manageability. To address this, @schonbrodtOverviewFormalizationSteps2024 recommends deliberate narrowing of scope early in the process, both in terms of phenomena modeled and constructs included.
+
+#### Implementation in This Model
+This formalization deliberately concentrates on a specific pathway within the broader Self-Determination Theory framework. It examines how the work context - specifically, whether employees work remotely or in a hybrid setting - affects the satisfaction of the three basic psychological needs: autonomy, competence, and relatedness. It then follows how this need satisfaction influences intrinsic motivation, which is, in turn, linked to job satisfaction. This resembles the main ideas in @gagneUnderstandingShapingFuture2022 discussions on SDT under remote work context. Other possible outcomes such as turnover intentions, well-being, or organizational commitment were deliberately excluded to maintain a focused and tractable model. This decision aligns with the VAST principle of limiting the number of constructs and relations to those directly pertinent to the theoretical claim under investigation [@leisingHowFormalizeVerbal2024].
+
+#### Challenges and Modeling Decisions
+A key decision involved whether to include broader environmental moderators, such as organizational culture or individual difference variables. While @gagneUnderstandingShapingFuture2022 vaguely mentions their potential relevance, explicit formalization of these factors would have substantially expanded the model’s complexity.
+@schonbrodtOverviewFormalizationSteps2024 recommends to start simple and add complexity only when necessary. They remain potential extensions for future empirical testing but are not part of the core model documented here. An example of how such vaguely mentioned moderators (emotional stability) can be included in a VAST diagram is nevertheless provided. 
+Thus, the model’s scope remains focused yet theoretically comprehensive, preserving the core logic of SDT while ensuring that the formalization remains analytically manageable.
+
+## Step 3: Core Phenomena and UTOS Framework
+This step defines the empirical phenomena that the formal model aims to explain, using the UTOS framework (Units, Treatments, Outcomes, Settings) to ensure conceptual clarity and generalizability [@schonbrodtOverviewFormalizationSteps2024; @leisingHowFormalizeVerbal2024]. It is closely interlinked with Step 4 and therefore jointly documented in one shared output: 
+See [`04_phenomena_and_UTOS.md`](https://github.com/CasparSchumacher/VAST-SDT-RemoteWork/blob/main/04_phenomena_and_UTOS.md) for a complete overview of all core model phenomena. One representative example is demonstrated in Figure 1.
+
+**Figure 1**
+
+*Example of core phenomenon P4 with UTOS breakdown and VAST representation*
+![](figures/P4_example.png){#fig-p4 width=80% fig-align="center"}
+
+#### Challenges and Modeling Decisions
+A central challenge in this step involved translating verbal theoretical propositions into VAST’s formal relationships, especially deciding between causal links (→c), predictive links (→p) and reasoning links (→r). For instance, the connection between `INTRINSIC_MOTIVATION` and `JOB_SATISFACTION` is modeled as a predictive link (→p) because the reviewed theory [@gagneUnderstandingShapingFuture2022] presents this association correlatively, without specifying a causal mechanism [@leisingHowFormalizeVerbal2024].
+
+Another modeling issue concerned how to represent intermediate conditions such as `CONTEXTUAL_COMPETENCE_CONDITIONS` or `SOCIAL_CONNECTION_CONDITIONS.` Although these constructs reflect complex environmental features and are often latent, they were modeled as causal mediators in line with common practice in VAST representations of psychosocial processes [@leisingHowFormalizeVerbal2024].
+
+## Step 4: Collection and Evaluation of Robust Phenomena
+Typically, this step involves evaluating the empirical phenomena that we defined in Step 3, based on their generalizability across UTOS dimensions and the strength of supporting evidence [@schonbrodtOverviewFormalizationSteps2024]. 
+
+In this formalization, however, the focus is deliberately limited to the integrative meta-review by @gagneUnderstandingShapingFuture2022 to restrict scope and complexity for demonstrative purposes. As only a single comprehensive theoretical source is referenced, a broader evaluation of empirical robustness, as typically conducted at this step, does not apply. This approach serves the aim of demonstrating the VAST formalization without adding unnecessary theoretical complexity. In addition, VAST is explicitly designed to capture perspective, disagreement, and theoretical vagueness. These elements arise frequently when different research groups approach similar complex phenomena (further discussed in Issue 7). 
+
+## Step 5: Construct Source Table
+The Construct Source Table is a critical element in the VAST formalization process, serving to ground the model in precisely defined constructs. This step systematically documents the theoretical core of the model with a focus on semantic clarity, atomicity, and traceability.
+
+In VAST, a concept is understood as an abstract and agnostic meaning unit that assigns values to empirical objects [@leisingHowFormalizeVerbal2024]. Concepts form the basic building blocks of cognition and are used to structure how we classify and differentiate entities in the world. They are inherently general and do not, by themselves, imply theoretical commitments.
+
+Constructs, by contrast, refer to those specific concepts that are explicitly defined, named, and theoretically justified within the current formalization. They represent the subset of concepts that are actively used in the model, grounded in source literature, and systematically documented in the Construct Source Table.
+
+For the present model, the Construct Source Table (see [`05_construct_source_table.md`](https://github.com/CasparSchumacher/VAST-SDT-RemoteWork/blob/main/tables/05_construct_source_table.md)) includes only constructs that directly correspond to the modeled phenomena. All constructs in this case are treated as atomic concepts, extracted from @gagneUnderstandingShapingFuture2022; no composite nodes needed to be used, although they are a distinctive and valuable feature of VAST. 
+
+#### Key Modeling Decisions and Justifications
+A key modeling decision concerned how to formalize the contextual influences of remote work on need satisfaction. In line with the recommendations by @leisingHowFormalizeVerbal2024, we chose to represent the relevant factors not as isolated variables but as latent constructs that summarize broader contextual conditions. Specifically, the constructs `CONTEXTUAL_COMPETENCE_CONDITIONS` and `SOCIAL_CONNECTION_CONDITIONS` were introduced to capture how environmental aspects can either support or frustrate psychological needs.
+
+This decision was informed by how @gagneUnderstandingShapingFuture2022 systematically describe the bipolar nature of remote work’s effects. Regarding competence, remote work can enhance access to information and learning resources, thereby supporting competence satisfaction [@gagneUnderstandingShapingFuture2022, p. 7]. At the same time, the authors note that remote settings can also foster an overwhelming amount of information, which can be experienced as a job demand undermining competence [@gagneUnderstandingShapingFuture2022, p.8].
+
+A similar dual structure is evident for relatedness. Remote work technologies can facilitate social connection, acting as "a buffer against loneliness for remote workers or homeworkers and enable stronger connections among distributed workers" [@gagneUnderstandingShapingFuture2022, p. 7]. Conversely, when poorly implemented, these same conditions can lead to feelings of exclusion and isolation, weakening employees' sense of belonging [@gagneUnderstandingShapingFuture2022, p. 7].
+
+I further chose these specific terminologies - *conditions* rather than *threats* or *supports* - to preserve content neutrality. Consistent with VAST best practices, this avoids a pre-judgment of whether contextual influences are beneficial or harmful, ensuring that the constructs can flexibly capture both directions of effect depending on the situational design of remote work [@leisingHowFormalizeVerbal2024].
+
+In contrast to competence and relatedness, the case of autonomy involves a dual mechanism. While `CONTEXTUAL_COMPETENCE_CONDITIONS` and `SOCIAL_CONNECTION_CONDITIONS` capture bipolar contextual influences on their respective needs, the literature suggests that remote work itself can directly promote autonomy by requiring more self-regulation and offering greater control over one’s work environment. As @gagneUnderstandingShapingFuture2022[p.7] note:
+“Physical workplace cues that usually guide work behaviours and routines in the office do not exist in virtual work, consequently demanding more autonomous regulation of work behaviours. Indeed, some workers report enhanced autonomy under remote work." Taking literally, this implies a direct effect of `REMOTE_WORK` on `AUTONOMY_NEED_SATISFACTOIN`. 
+
+However, they also emphasize that these benefits depend on how remote work is managed. Managers may “rob workers of this autonomy by closely monitoring them [...],” leading to “decreased feelings of autonomy” due to perceived lack of trust [@gagneUnderstandingShapingFuture2022, p.7]. To represent this socially mediated mechanism, I introduced `AUTONOMY_SUPPORT` as a distinct construct capturing the extent to which managerial and organizational practices foster autonomy.
+
+Importantly, an alternative modeling choice would be to represent this relationship as an interaction effect. Rather than acting as an additive mediator, `AUTONOMY_SUPPORT` could modulate the impact of `REMOTE_WORK_CONTEXT` on `AUTONOMY_NEED_SATISFACTION`. This interpretation is consistent with the theoretical point made by in the paper, that structural freedom alone particularly results in perceived autonomy, when accompanied by supportive social conditions such as trust, empowerment, and low levels of surveillance.
+
+VAST does offer a symbolic way to represent interactions - using a diamond with "AND" inside to depict the joint influence of two concepts on a third. This notation remains schematic and as @gagneUnderstandingShapingFuture2022 do not mention it explicitly, the interaction was not modeled in this version of the model. More importantly, this ambiguity highlights a broader methodological point though: when verbal theories are translated into visual formats, they often carry implicit assumptions, such as linearity, additivity, or independence, that may not have been explicitly stated. Making these implications visible is a central strength of the VAST approach, as it helps uncover hidden commitments embedded in natural language formulations, that we often find in long introduction settings.
+
+Following VAST best practices, construct names were chosen to be as precise, content-neutral, and non-interpretive as possible. A clear distinction is made between concepts and their natural language labels, which serve only as referential devices and should avoid implying unwarranted theoretical assumptions. However, VAST also acknowledges that the act of labeling can never be entirely free of interpretation [@leisingHowFormalizeVerbal2024]. For instance, terms such as `CONTEXTUAL_COMPETENCE_CONDITIONS` were deliberately chosen over more evaluative alternatives, like `COMPETENCE_THREATS` to preserve semantic neutrality and avoid prematurely framing contextual influences as detrimental. Thus, naming decisions themselves reflect theoretical judgment and must be made transparently.
+
+Although VAST allows the use of abstract identifiers to reduce visual complexity, replacing carefully extracted constructs with symbolic IDs would reduce readability and obscure the theoretical grounding derived from the verbal source theory [@gagneUnderstandingShapingFuture2022]. Therefore, for the VAST construction, this work retains the full construct labels in `CAPITAL_SNAKE_CASE` for clarity and conceptual transparency.
+
+## Step 6: Initial Construction of the VAST Diagram
+The next step is to arrange these constructs visually and to establish the first structure of the argument model in the form of a VAST diagram. Following @schonbrodtOverviewFormalizationSteps2024 and @leisingHowFormalizeVerbal2024, this initial visualization organizes the theoretical elements systematically without yet introducing quantified relationships or mathematical formalizations - these will follow in subsequent steps.
+
+#### Implementation in This Model.
+Following VAST conventions, all constructs in this model are theoretical constructs - that is, concepts without direct empirical measurement - so they are represented as standard rectangles. Data constructs, which refer to observable variables with empirical indicators, would be marked with a thick black border, and higher-order constructs (composites of multiple concepts) would be enclosed in framed groups. Neither applies here, as @gagneUnderstandingShapingFuture2022 is an all theoretical review. 
+
+Arrows between constructs indicate theoretical relationships. At this point, they merely denote that a relation is assumed, without yet specifying its type (e.g., causal, predictive) or strength - these details are systematically formalized in Steps 7 and 8. In line with VAST’s logic, any relation mentioned in the verbal source is included, with later steps allowing for qualification of strength or uncertainty.
+
+The entire diagram is framed by an IS pentagon, indicating that the model expresses descriptive claims about the world rather than normative prescriptions (OUGHT). A perspective oval is attached to the IS frame and labeled with the name of the source theory’s authors, making transparent that all claims in the model are reconstructed from the perspective of @gagneUnderstandingShapingFuture2022 and do not represent universal truths. This practice follows VAST’s meta-theoretical principle of explicitly disclosing whose assumptions are being modeled [@leisingHowFormalizeVerbal2024].
+
+#### Challenges and Modeling Decisions
+The primary challenge in constructing the initial diagram was balancing completeness with parsimony. Following the recommendations by @schonbrodtOverviewFormalizationSteps2024, only constructs necessary to model the six core phenomena were included. This ensures that the resulting diagram remains focused and avoids unnecessary theoretical or visual complexity.
+
+A particularly important modeling decision concerned the representation of mutual exclusivity between `REMOTE_WORK_CONTEXT` and `HYBRID_WORK_CONTEXT.` To formalize this, an XOR diamond was introduced between the two constructs. According to @leisingHowFormalizeVerbal2024, XOR (exclusive OR) connections are used in VAST to express that exactly one of the connected constructs can be true at a time. By modeling the relationship through an XOR structure, it is made explicit that individuals in the model can either be in a remote work context or in a hybrid work context, but not both simultaneously. This ensures formal clarity and avoids potential ambiguities that would arise from unlabeled or implicit exclusivity assumptions. This will become interesting when we start interpreting the causal links between the constructs.
+
+**Figure 2**
+
+*Formalized VAST model, adapted from Gagné et al. (2022)*
+![](figures/06_VAST_v5.png){width=80% fig-align="center"}
+
+
+## Step 7: Variable Table: Definition of Variables, Scale Levels, and Semantic Anchors
+After building the initial VAST structure we start formalizing the model by systematically specifying the variables for each construct. This step ensures that the conceptual model can later be translated into a formal mathematical model, enabling both empirical operationalization and potential simulations.
+For each concept it is necessary to specify, the scale level according to Stevens’ typology (nominal, ordinal, interval, ratio) [@stevensTheoryScalesMeasurement1946], the range of values the variable can take and the semantic anchors. 
+
+Defining variables with appropriate scale levels and semantic anchors ensures that the formalization aligns with the theoretical properties of each construct and provides a precise foundation for subsequent modeling and statistical analysis. As emphasized by @schonbrodtOverviewFormalizationSteps2024, careful variable specification avoids scale-level misspecification and ensures that empirical tests remain validly anchored in the theory’s structure.
+
+#### Implementation in This Model
+For all non-higher-order constructs in this VAST diagram, variables were defined according to the following principles: The work context variables (`REMOTE_WORK_CONTEXT`, `HYBRID_WORK_CONTEXT`) were defined as nominal variables with a binary range {0, 1}, indicating the absence (0) or presence (1) of the respective work context. Nominal scaling was chosen because these variables represent categorical designations without an inherent order. While @gagneUnderstandingShapingFuture2022 suggest operational cut-offs for instance, classifying hybrid work as starting at two days of remote work per week, the precise thresholds for distinguishing office, hybrid, and fully remote work remain unspecified. To maintain fidelity to the original theoretical perspective and avoid introducing unsupported assumptions, the model refrains from imposing strict operational definitions. This choice aligns with VAST's flexibility, which allows for preserving theoretical vagueness and prevents over-specification in early stages of formalization.
+
+The need satisfaction variables were modeled on a unipolar interval scale ranging from 0 to 1, where 0 indicates no satisfaction of the need and 1 indicates full satisfaction. While the broader SDT framework conceptualizes basic psychological needs as bipolar dimensions, encompassing both satisfaction and active frustration [@vansteenkistePsychologicalGrowthVulnerability2013a], the constructs formalized here explicitly refer to need satisfaction. @gagneUnderstandingShapingFuture2022 primarily frame needs in terms of their satisfaction and the extent to which contextual conditions can thwart satisfaction, without explicitly modeling frustration as a separate construct. For example, they describe how "remote work technologies can facilitate social connection" (p. 7), but when poorly implemented, they "can lead to feelings of exclusion and isolation, weakening employees' sense of belonging", highlighting a reduction in satisfaction rather than the emergence of active frustration. To remain consistent with this framing and with the verbal labels used (`NEED_SATISFACTION_X`), a unipolar scale was chosen. This ensures alignment between the construct definition and its measurement structure. 
+
+The contextual mediator variables for the relatedness and competence were modeled based on the dual nature of environmental influences on psychological needs in remote work settings.
+`AUTONOMY_SUPPORT` was defined as a unipolar interval variable ranging from 0 to 1, where 0 indicates a lack of autonomy-supportive practices (e.g., close monitoring, low trust), and 1 indicates strongly supportive environments that foster choice, volition, and self-initiation. A unipolar scale was chosen because the construct, as used in @gagneUnderstandingShapingFuture2022, captures the presence and degree of support, rather than the full bipolar continuum from support to active thwarting (see Step 6). Since VAST does not require all causal links to follow a linear or uniformly positive functional form, this unipolar mediator can still contribute negatively to the total effect that remote work has on autonomy satisfaction. This possibility must be carefully considered when further formalizing the VAST model mathematically.
+
+I deliberately chose an interval scale rather than a ratio scale because, while the literature provides a clear qualitative valence (positive vs. negative), it does not establish absolute magnitudes, true zero points, or proportional distances between supportive and frustrating conditions. The difference between a low and a high level of need satisfaction is interpretable, but the absolute distance between, for example, information overload and learning opportunities cannot be meaningfully quantified.
+
+Following Schönbrodt’s formalization principles [@schonbrodtOverviewFormalizationSteps2024], this conservative choice ensures that we capture and preserve all the relavant content without introducing unwarranted assumptions about absolute scaling. By applying interval-level measurement, the formalization respects both the theoretical claims and the constraints of the available evidence, maintaining theoretical clarity and empirical tractability throughout the model.
+
+`INTRINSIC_MOTIVATION` was modeled as a unipolar interval variable [0, 1]. A unipolar scale captures the assumption that motivation ranges from absence to presence, consistent with the SDT perspective on autonomous motivation. `JOB_SATISFACTION` was defined as a bipolar interval scale [–1, 1], given that job satisfaction is typically conceptualized as a valence measure capturing both positive and negative evaluations, a bipolar scale with equal intervals ensures that dissatisfaction and satisfaction are symmetrically represented.
+
+It should be noted that the selection of measurement scales and anchors was necessarily pragmatic and reflects an approximation of how @gagneUnderstandingShapingFuture2022 conceptualized these constructs; different operationalizations would be defensible, illustrating that even formalization involves interpretive decisions. The level of detail required in this step underscores how non-trivial and theory-laden such modeling decisions are when developing a formalized psychological theory.
+
+## Step 8: Relationship Table and Mathematical Formalization
+Following @schonbrodtOverviewFormalizationSteps2024 and @leisingHowFormalizeVerbal2024, the next step involves formalizing the relationships between constructs. In VAST, six relation types specify the nature of connections:
+
+- Naming links (`n`): Capture how appropriate it is to call X by the name Y, typically for conceptually equivalent constructs.
+- Conceptual implication links (`i`): Express logical entailment, where thinking of something as X implies thinking of it as Y.
+- Causal links (`c`): Represent directional cause-effect relations, based on explicit causal claims in the verbal theory.
+- Transformation links (`t`): Map X onto Y when they represent different aspects of the same phenomenon.
+- Prediction links (`p`): Indicate statistical dependence (e.g., correlations) without asserting causality.
+- Reasoning links (`r`): Reflect inferential or explanatory relations based on theoretical logic rather than empirical observation.
+
+#### Implementation in This Model
+The relationships are documented in [08_relationship_table.md](https://github.com/CasparSchumacher/VAST-SDT-RemoteWork/blob/main/tables/08_relationship_table.md). Classification was based on the verbal descriptions provided by @gagneUnderstandingShapingFuture2022: 
+
+- Statements indicating directional influence (e.g., "leads to", "might thwart") were formalized as causal links (`c`).
+- Normative or theoretical language (e.g., "important to") without empirical direction was formalized as reasoning links (`r`).
+- Inter-need relationships and the link between intrinsic motivation and job satisfaction were formalized as probabilistic links (`p`), based on established empirical correlations.
+
+\noindent Relationship strength was categorized based on qualitative phrasing:
+
+- Strong: *leads to*, (p.7); *significantly related to*, (p.2)
+- Moderate: *can also present*, (p.8); *seems to offer*, (p.8)
+- Weak: *might thwart*, (p.8)
+
+\noindent This follows @leisingHowFormalizeVerbal2024's recommendation to approximate strength pragmatically when quantitative estimates are absent.
+For probabilistic links between need satisfaction constructs, exact correlation coefficients (`p`) from @brunelleDistanceMakesHeart2021 were used. For the intrinsic motivation to job satisfaction link, meta-analytic evidence from  @vandenbroeckReviewSelfDeterminationTheory2016 was incorporated. These empirical interdependencies are widely recognized in SDT research and are important for later demonstrative steps.
+
+**Mathematical Representation.**
+All relationships in the model were formalized using linear functions by default, based on the principle of parsimony and in the absence of explicit nonlinear specifications in the verbal theory [@schonbrodtOverviewFormalizationSteps2024]. @gagneUnderstandingShapingFuture2022 describe the relevant relationships using qualitative language (e.g., *leads to*, (p.7); *undermine*, (p.10); *might reduce*, (p.10)), without specifying functional forms or threshold dynamics. This approach allows for a transparent and modular translation of theoretical assumptions into mathematical structure, avoiding premature overfitting.
+
+It is important to note, however, that linearity in this context does not imply uniform positivity. Even within a linear framework, the slope and intercept determine whether a unipolar input (e.g., `AUTONOMY_SUPPORT`, ranging from 0 to 1) produces positive, neutral, or even negative effects on the outcome. The default use of linear functions can and should be critically discussed. As suggested by @schonbrodtOverviewFormalizationSteps2024, alternative functional forms, such as logistic functions, may offer more realistic representations, particularly when fitting theoretical assumptions to empirical data. Relevant tools and guidance are provided in [Formalization Steps 9–14](https://nicebread.github.io/FOMO-Psy/lectures/MathModel/MathModel.html#some-mathematical-tools).
+
+**Challenges and Modeling Decisions.**
+A key challenge was interpreting the cautious language, leading to conservative strength assignments (moderate or weak) where appropriate.
+A further modeling decision concerned the use of a reasoning link (→`r`) between `REMOTE_WORK_CONTEXT` and `AUTONOMY_SUPPORT.` As outlined earlier, autonomy support, as it is described in @gagneUnderstandingShapingFuture2022, can be understood as a direct feature of remote work but rather depends on broader organizational practices that may precede or shape the implementation of remote work itself. Organizational workshops that teach managers to act in a more autonomy supportive way (as proposed in the paper), could precede and even contribute to the implementation of remote work in an organization. This introduces temporal and structural ambiguity, which precludes a clear causal interpretation.
+The reasoning link preserves this theoretical openness and allows the modelling of structurally undetermined relationships without committing to premature causal claims. This decision is also demonstrative, as it becomes methodologically relevant in later stages when causal inference with DAGs is attempted and such ambiguities must be resolved explicitly.
+
+# Translating a VAST into a DAG: Methodological Issues
+The conceptual differences between VAST and DAGs have been outlined earlier. Instead of proposing a binary choice between these frameworks, this chapter pursues an integrative approach. VAST, as a tool specifically developed to address the theory crisis in psychology, provides a structured basis for constructing clear and critically examinable theories, as shown in the previous chapter [@leisingVisualArgumentStructure2023a; @leisingHowFormalizeVerbal2024]. DAGs, in contrast, offer a means of formalizing causal assumptions in a way that enables empirical testing and falsification [@rohrerThinkingClearlyCorrelations2018; @hernanCausalInferenceWhat2025].
+
+Building upon suggestions by Schönbrodt and colleagues, it seems promising to incorporate an additional step into the VAST-based workflow: "Step X: Translate VAST model into a DAG representation" [@schonbrodtOverviewFormalizationSteps2024]. However, translating a VAST diagram into a DAG is not trivial. It surfaces a number of methodological challenges, referred to here as Issues, which must be critically discussed to avoid misinterpretations or methodological errors.
+
+## Issue 1: Absence of a Path ≠ Absence of an Effect
+One of the fundamental distinctions between VAST and DAGs concerns the interpretation of absent edges between nodes. In VAST, the absence of a link between two constructs is intended to reflect theoretical agnosticism: it signifies that no final claim is made about the existence or non-existence of a relationship [@leisingVisualArgumentStructure2023a]. This openness allows VAST diagrams to model areas of incomplete knowledge without forcing premature commitments. In contrast, in DAGs, the absence of a directed edge is a strong and explicit assumption: it implies that no direct causal effect exists between the variables [@rohrerThinkingClearlyCorrelations2018; @hernanCausalInferenceWhat2025]. Every missing arrow in a DAG encodes conditional independence, and these assumptions are critical for identifying valid adjustment sets and estimating causal effects [@textorAdjustmentCriteriaCausal2012].
+
+Without careful treatment, translating a VAST diagram directly into a DAG risks turning areas of theoretical uncertainty into unjustified assumptions of no effect. This could bias causal identification strategies and produce misleading conclusions [@shrierReducingBiasDirected2008]. A further implication concerns the treatment of omitted variables. To avoid bias, at first, all plausible common causes, such as personality traits, demographics, or organizational features, should be included in the DAG [@textorAdjustmentCriteriaCausal2012]. Otherwise, backdoor paths may remain open. Issue 3 further elaborates on this point.
+
+A practical approach would be to systematically check all non-specified relationships against the existing literature. If no strong theoretical or empirical basis exists, omitting the connection in the DAG may be justified. In future, rapid AI-supported literature research tools (e.g.[Elicit](https://elicit.com/)), could support this process efficiently, especially for broader or more complex models. Such tools could help identify overlooked associations and make the transition from VAST to DAG more robust without imposing unrealistic demands on researchers.
+
+In terms of broader methodology, a minimal DAG approach, where only strongly confirmed edges are retained, has been proposed. However, this method is problematic. As discussed by @groszTabooExplicitCausal2020, omitting edges without a clear justification introduces strong assumptions of no causal effect, which can distort the model. Simply documenting uncertainties is insufficient because DAGs require a fully specified structure to apply d-separation [@hernanCausalInferenceWhat2025].
+
+Partial DAGs (PDAGs) allow for expressing uncertainty by including undirected edges where causal directions remain unclear, forming equivalence classes of DAGs that share the same set of conditional independencies [@glymourReviewCausalDiscovery2019a; @perkovicInterpretingUsingCPDAGs2018]. While this preserves epistemic openness, PDAGs significantly complicate analysis and require specialized tools and knowledge [@digitaleTutorialDirectedAcyclic2022]. As this work aims to demonstrate a transparent VAST-to-DAG translation for applied use, PDAGs and their completed version (CPDAGs) are acknowledged but not pursued further here.
+
+Bayesian graphical models offer another way to represent uncertainty by assigning prior probabilities to edges. While methodologically rigorous, they demand advanced statistical modeling and are thus less accessible for the broader audience of theory developers targeted by VAST [@hernanCausalInferenceWhat2025]. Accordingly, Bayesian approaches are acknowledged but not pursued further in this work.
+
+**Application of Issue 1.**
+To illustrate the structural implications of Issue 1, this analysis focuses on a targeted subset of the VAST model, specifically the question: How does remote work affect social relatedness need satisfaction and its downstream impact on intrinsic motivation? In empirical psychology, it is common to isolate theoretically relevant segments of broader models in order to test them more efficiently or address specific research questions. The selected path represents a core application of SDT to the remote work context and is particularly relevant for questions of social connection and motivational outcomes. In this case, it also serves practical and didactic purposes by reducing complexity while highlighting the structural point at hand. The narrowed scope is illustrated in the reduced VAST excerpt shown in Figure 3.
+
+**Figure 3**
+
+*Reduced VAST model: Work Context → Social Relatedness *
+![](figures/06_VAST_narrowed.png){width=80% fig-align="center"}
+However, even in smaller model segments, the core issue of handling missing paths or omitted constructs in the VAST diagram persists and can sometimes become even more complex.
+To illustrate this challenge, we introduce a construct not included in the original VAST model but identified during literature review: `ORGANIZATIONAL_SUPPORT_STRUCTURES` (OSS). While not explicitly discussed by @gagneUnderstandingShapingFuture2022, OSS has been mentioned elsewhere as a possible explanation for variation in remote work outcomes [@brunelleDistanceMakesHeart2021]. It may conceptually overlap with my VAST construct: `SOCIAL_CONNECTION_CONDITIONS` (for simplifying purposes of this demonstration referred to as SCC), but was not formalized in our initial VAST model due to its absence in the target literature.
+
+This example highlights a core issue in the VAST-to-DAG translation: how should relevant but initially omitted constructs be treated when building a DAG? VAST offers flexibility by leaving such decisions open, as were only focusing on @gagneUnderstandingShapingFuture2022´s perspective. DAGs, by contrast, require explicit structural commitments. To demonstrate this methodological shift, three plausible DAG variants are shown, each reflecting a different causal role of OSS in the pathway from remote work to intrinsic motivation.
+
+These alternatives do not represent competing empirical models, but illustrate how the same theoretical construct can occupy different structural roles, each with distinct consequences for confounding control, statistical estimation, and interpretation. Their comparison illustrates how DAGs force explicit decisions about the roles of omitted constructs - decisions that remain unresolved in a VAST diagram.
+
+**Variant A: OSS as a confounder.**
+\noindent In this variant, OSS influences both the likelihood of remote work adoption and the quality of SCC. If left unobserved, this opens a backdoor path that biases the estimated effect of remote work on social relatedness.
+
+**Figure 4**
+
+![](figures/OSS_confounder.png){width=80% fig-align="center"}
+
+**Variant B: OSS as a mediator.**
+Here, remote work leads to organizational adaptations (e.g., improved communication practices), which in turn shape the SCC. OSS now functions as a mediator that explains part of the total effect from remote work on intrinsic motivation via relatedness. Still, we will have to distinguish whether we want to look on total effects or direct effects. An example on how to handle this is provided later. 
+
+**Figure 5**
+
+![](figures/OSS_mediator.png){width=70% fig-align="center"}
+
+#### Variant C: OSS as a cause of the mediator 
+\noindent In this structure, OSS exerts an independent causal influence on SCC, irrespective of the remote work context. It functions as a contextual factor that shapes the quality of social connection but is not causally affected by `REMOTE_WORK_CONTEXT`. As such, OSS lies on the causal pathway from `REMOTE_WORK_CONTEXT` to `NEED_SATISFACTION_RELATEDNESS`, mediated via SCC. When estimating the total effect, no adjustment is required for either SCC or OSS. However, to isolate direct effects, it would be necessary to adjust for the relevant mediators, such as SCC.
+
+**Figure 6**
+
+![](figures/OSS_cause_of_mediator.png){width=70% fig-align="center"}
+All DAGs were created with [dagitty.net](https://dagitty.net/dags.html); corresponding code and diagrams can be found in this GitHub folder:  [`/code`](https://github.com/CasparSchumacher/VAST-SDT-RemoteWork/tree/main/code).
+
+## Issue 2: Relationship Strengths and Types from VAST to DAG
+In addition to the challenge of absent links, translating a VAST model into a DAG also raises important questions about how to handle the relationships that are explicitly specified. VAST allows not only for the presence or absence of a connection but also distinguishes between different types of relationships and captures further properties such as strength (weak, moderate, strong) and directionality (positive or negative) [@leisingVisualArgumentStructure2023a].
+
+In contrast to VAST, DAGs are designed to represent only direct causal relationships. A directed edge in a DAG (X → Y) encodes the existence of a direct causal effect, but not its strength, sign, or statistical association [@rohrerThinkingClearlyCorrelations2018; @hernanCausalInferenceWhat2025]. Predictive (p) and reasoning (r) links, as used in the VAST model, reflect statistical covariation or theoretical justification but do not qualify as causal relationships. Including them in a DAG would violate its structural assumptions [@textorAdjustmentCriteriaCausal2012].
+
+Therefore, only relationships labeled as causal (c) in the VAST model are carried forward into the DAG. This makes the careful classification of relationship types during the VAST formalization critically important (particularly in Step 8). These distinctions are essential for ensuring that only theoretically and empirically grounded causal claims enter the DAG.
+
+While DAGs do not permit undirected edges, observed associations that lack a clear causal explanation for one way or the other, should not be omitted without consideration. Instead, they should either be explained through shared upstream causes (e.g., observed or latent common factors) or be transparently documented outside the DAG. Ignoring such associations implies strong independence assumptions that may not hold. These relationships are especially important because they can signal potential sources of confounding or suppression, as will be discussed in Issue 3 [@textorAdjustmentCriteriaCausal2012; @hernanCausalInferenceWhat2025].
+
+Information about the strength of a causal relationship is also not represented in DAGs. As long as a causal effect is assumed to exist, it is depicted by a simple arrow, regardless of whether it is weak or strong. In contrast to VAST, where relationship strength is qualitatively annotated to reflect theoretical nuance, DAGs abstract away from such gradations to enable formal reasoning about structure. Moreover, assigning a strength to an effect implicitly implies a direction, which - when negative - presupposes a linear relationship and rules out the possibility of nonlinear effects, such as quadratic influences. At this stage, we want to avoid making such explicit assumptions.
+
+To manage this translation without losing transparency, it is useful to adopt the metaphor of a picture frame. The frame represents a static and bounded view of the theory, in which relationships must be direct and causal, and their strength or direction cannot be shown. This does not mean that the richness of the theory is lost. Rather, the DAG captures a reduced version of the model that makes specific structural assumptions visible and testable. Importantly, the broader theoretical structure remains intact outside the frame. As long as the steps into and out of the DAG are carefully documented, no information is discarded.
+
+This documentation should follow the same systematic rigor as in earlier stages of the formalization process [@leisingVisualArgumentStructure2023a]. Causal relationships must be well justified, while predictive and reasoning links, as well as strength and directionality annotations, should be preserved in supplementary materials, as I did in the GitHub repository.
+
+By treating the DAG as a framed subset of the broader VAST model, researchers can benefit from the analytical strengths of DAGs, such as d-separation, confounder and collider detection, without abandoning the nuanced theoretical groundwork laid by the VAST formalization.
+
+#### Application of Issue 2
+Accordingly, we included only those links labeled as causal (c) in the original VAST model. This decision becomes particularly relevant when addressing the empirically observed correlations among the three basic psychological needs: autonomy, competence, and relatedness. In the VAST diagram, these were connected via predictive links (p), based on correlational findings that we modeled after @brunelleDistanceMakesHeart2021. In DAGs, however, correlated variables must either be connected through direct causal paths or share a common cause, since any omitted path implies an assumption of conditional independence.
+
+To account for these correlations in the DAG translation, we modeled all three needs as conditionally independent, each being influenced through separate paths stemming from `REMOTE_WORK_CONTEXT.` One important modeling implication of this decision concerns the role of `AUTONOMY_SUPPORT.` In the original VAST model, this construct was linked to `REMOTE_WORK_CONTEXT` via a reasoning link (r), reflecting the nuanced role of the organizational environment as discussed by @gagneUnderstandingShapingFuture2022 and explained prior in the VAST formalization. Thus we would have to drop it in this step of the translation. However, to retain the theoretical link in the DAG framework, which plays a critical role in explaining the observed inter-need correlations, we need to reclassify this path as a causal link (c). This implicates a reinterpretation of `AUTONOMY_SUPPORT` as a downstream effect of `REMOTE_WORK_CONTEXT`, leading us to this causal interpretation: organizations may develop autonomy-supportive practices (or may lack in doing so) as a response to implementing remote work, rather than autonomy support simply pre-existing and determining the likelihood of remote work adoption.
+
+This reinterpretation has direct implications for empirical work that may follow the VAST to DAG conceptualization of our theory. If `AUTONOMY_SUPPORT` is treated as a downstream consequence of `REMOTE_WORK_CONTEXT`, its measurement must follow the implementation of remote work, as we are only looking at the change in autonomy support from now on. Additionally, pre-existing levels of autonomy support must be measured and controlled for to justify the assumed temporal order. Such modeling choices should be transparently documented, as I also did in my [Relationship Table](https://github.com/CasparSchumacher/VAST-SDT-RemoteWork/blob/main/tables/08_relationship_table.md) and flagged as a theoretically plausible but contingent interpretation. The issue of jingle–jangle fallacies arises here for the first time and will be examined in greater depth in Issue 7.
+
+As an alternative, a latent common factor (e.g., “Need Orientation” or "General need satisfaction") is sometimes introduced to explain the interdependence of the three basic needs, as @howardNeedSupportNeed2024 discuss this in their meta-analytic work. However, to avoid introducing additional complexity, this option was not implemented in the present model.
+
+## Issue 3: Indirect vs. Total Effects and the Problem of Confounders and Suppressors
+DAGs force a reduction of the VAST model to explicit causal assumptions. In combination with the focus often narrowing down to only a subset of the broader theory, this introduces new methodological challenges. 
+
+One is the need to distinguish direct from total effects. In VAST, causal paths may involve intermediaries, but the model does not enforce explicit differentiation between mediated and direct links. DAGs, by contrast, demand full specification: each arrow represents a direct effect, while total effects emerge from the full set of directed paths between variables. If important mediators are left out in translation, the resulting DAG may falsely encode indirect effects as direct, leading to distorted inferences.
+
+Closely related is the treatment of mediators, confounders, and suppressors. These roles differ in theory but can be statistically indistinguishable, as shown by @mackinnonEquivalenceMediationConfounding2000 and summarized in this [CenterStat](https://centerstat.org/what-is-a-suppressor/) overview [@patrickWhatSuppressorVariable2025]. Whether a variable functions as a mediator, confounder, or suppressor depends not on the data pattern, but on the causal assumptions imposed by the model. The same observed associations can support very different DAGs, depending on how these roles are interpreted. VAST helps avoid such ambiguity by grounding each link in theoretical justification rather than in empirical fit alone.
+This becomes especially relevant in light of the Markov equivalence problem. Different DAGs can encode the same set of conditional independencies while implying incompatible causal structures [@glymourReviewCausalDiscovery2019a]. Statistical equivalence does not ensure causal validity. Without careful theoretical reasoning, a DAG may omit crucial variables or misstate the direction of effects, leading to misleading inferences. The translation from VAST to DAG forces these distinctions to be made explicit.
+
+#### Application of Issue 3
+To illustrate the structural demands imposed by DAG translation, we focus on the pathway from `REMOTE_WORK_CONTEXT` to `INTRINSIC_MOTIVATION`, mediated through `NEED_SATISFACTION_RELATEDNESS.` According to our VAST model, this path is itself mediated by `SOCIAL_CONNECTION_CONDITIONS`, and no direct link from remote work to relatedness satisfaction is assumed [@gagneUnderstandingShapingFuture2022]. Adjusting for these mediators (which means looking for the direct effect) would remove the effect of interest. Therefore, our goal is to estimate the total effect of remote work on intrinsic motivation that flows through the social-relatedness pathway.
+
+However, even in this focused segment the pathways through `NEED_SATISFACTION_AUTONOMY` and `NEED_SATISFACTION_COMPETENCE`, remain active. If left unaddressed, these paths introduce bias into the effect estimate. [DAGitty.net](https://dagitty.net/dags.html) confirms this: in order to isolate the relatedness pathway, we must adjust for the other two need pathways. While theoretically not the focus, they act as so called "backdoor paths" unless explicitly blocked (*white ellipse*). 
+
+**Figure 7**
+
+*Adjusted backdoor bias through need satisfaction pathways in total effect estimation*
+![](figures/RW_IM_total_blocked_paths.png){width=60% fig-align="center"}
+This brings a key insight: even in a narrowed model, excluding variables from the DAG requires justification. If we aim to estimate the total effect on `INTRINSIC_MOTIVATION`, we must include and adjust for parallel mediators to isolate the path of interest [@hernanCausalInferenceWhat2025].
+
+Alternatively, we may reformulate the research question and treat `NEED_SATISFACTION_RELATEDNESS` as the outcome of interest. From a theoretical standpoint, this is the more coherent choice: As SDT conceptualizes intrinsic motivation as a joint outcome of all three needs, any effect on `INTRINSIC_MOTIVATION` is necessarily confounded by the parallel paths through autonomy and competence. Focusing instead on relatedness satisfaction avoids this ambiguity and offers a more precise test of whether remote work meaningfully shapes social experiences. If no effect on relatedness is found, this has direct theoretical implications, whereas a total effect on motivation might mask such null findings due to unrelated contributing factors.
+
+This decision also simplifies the DAG structure. As shown below, the path from `REMOTE_WORK_CONTEXT` via `SOCIAL_CONNECTION_CONDITIONS` to relatedness satisfaction can be interpreted directly, without having to adjust for `NEED_SATISFACTION_AUTONOMY` and `NEED_SATISFACTION_COMPETENCE`, allowing us to cancel them out of our DAG, as shown in Figure 8. 
+
+This example shows how important it is to define the research question precisely and to choose the relevant variables based on theory. Using a VAST model helps making these decisions more transparent and structured from the beginning.
+
+**Figure 8**
+
+*DAG focusing on direct path from remote work to relatedness (no adjustment required)*
+![](figures/RW_SC_total.png){width=60% fig-align="center"}
+
+A similar logic applies to the role of `ORGANIZATIONAL_SUPPORT_STRUCTURES` (OSS), which has been discussed as a possible explanatory factor in previous modeling steps. Its theoretical position remains ambiguous: OSS may represent a confounder (A), a mediator (B), or a cause of the mediator (C) `SOCIAL_CONNECTION_CONDITIONS.` According to DAG conventions, adjusting for OSS would only be appropriate if it functioned as a confounder [@rohrerThinkingClearlyCorrelations2018]. If, however, it lies on the causal path from remote work to relatedness satisfaction, either directly or by shaping the mediating context, then controlling for it would block the very effect we seek to estimate. Unless this direct effect is exactly what we want to examine e.g., @brunelleDistanceMakesHeart2021. 
+When theory does not clearly determine a variable’s causal role, comparing multiple DAG variants can help assess the model’s sensitivity to structural assumptions [@textorAdjustmentCriteriaCausal2012; @rohrerThinkingClearlyCorrelations2018]. In such cases, adjustment decisions must be made cautiously, as unjustified control can obscure rather than illuminate the underlying causal structure.
+
+This opens the question of which potential extensions of our pathways of interest need to be explicitly modeled. Following the guidance of @elwertGraphicalCausalModels2013 and @rohrerThinkingClearlyCorrelations2018, variables that influence only a single node should generally be excluded from the DAG. Such *idiosyncratic variables* - including uncorrelated measurement error or context-specific traits - do not open backdoor paths and therefore cannot confound relationships among other nodes.
+
+A common alternative is to use multiple regression models to statistically control for covariates in an attempt to block backdoor paths. However, it is often overlooked that this adjustment is only appropriate when the covariate's influence on the outcome is linear. If the true effect follows a higher-order polynom (e.g., quadratic), this must be explicitly modeled to avoid residual confounding. Similarly, interaction effects between covariates and other predictors must be considered when they are theoretically plausible, as ignoring them may lead to biased estimates. Matching procedures, such as propensity score matching, offer a nonparametric alternative to regression-based adjustment, although they are themselves subject to methodological limitations and require careful theoretical justification [@kingWhyPropensityScores2019].
+
+An example is `EMOTIONAL_STABILITY`, which in our VAST diagram was marked as a moderator (*) on the link between `SOCIAL_CONNECTION_CONDITIONS` and `NEED_SATISFACTION_RELATEDNESS.` While @gagneUnderstandingShapingFuture2022 highlight emotional stability as a relevant personal characteristic, it modifies only the strength of a single causal effect and does not causally influence any other variable in the model. Moderators affect the relationship between two variables, rather than a node. As such, they are not typically represented in a DAG, which encodes causal structures between variables, not variation in effect magnitude. Although extended graphical frameworks, e.g. @weinbergCanDAGsClarify2007 offer ways to represent effect modification, standard DAGs remain focused on structural identifiability. Nonetheless, moderator variables should be carefully considered in the interpretation of causal effects, especially in empirical models that aim to test for interaction effects.
+
+## Issue 4: Feedback Loops
+A key structural limitation of DAGs is that they cannot represent feedback. By definition, DAGs are acyclic, meaning no variable can eventually influence itself through a closed loop. This property is what enables core features such as d-separation and causal effect estimation [@textorAdjustmentCriteriaCausal2012; @rohrerThinkingClearlyCorrelations2018].
+
+Psychological theories, however, often include feedback processes. In VAST, such cycles are allowed. A typical example would be motivation increasing performance, which improves social support, which in turn strengthens motivation. These loops capture meaningful dynamics but cannot be shown in a standard DAG.
+
+Here are two ways to deal with this. First, the transition from VAST to DAG often involves narrowing the focus to a specific question or testable part of the theory. In many cases, this automatically removes cycles and makes a DAG possible. Second, one could use time-indexed variables to break the cycle. A feedback loop like motivation affecting itself through performance and support can be expressed across time steps, for example by modeling `MOTIVATION_t` leading to `SUPPORT_t+1`, and then to `MOTIVATION_t+2`.
+
+In practice, VAST should keep the full theoretical structure, including any cycles. DAGs, on the other hand, represent simplified causal snapshots. This difference is not a flaw but reflects their complementary purposes: VAST for building theory, DAGs for testing it.
+
+## Issue 5: Exclusive Conditions and the Problem of XOR Structures
+A further issue arises when two causes are mutually exclusive, such that only one can be active at a time. This logic is often implicit in psychological study designs, for instance, when participants are assigned to non-overlapping experimental conditions. VAST makes such structures explicit using an XOR symbol. DAGs, however, do not support logical operators. As a result, not all c-relations from the VAST model can be directly translated into a DAG. All incoming arrows are interpreted as jointly active, which can lead to misrepresentations when exclusivity is part of the theoretical structure.
+
+This limitation can distort causal interpretations, particularly if total effects are estimated without accounting for the fact that only one cause should be present. In simple cases, the solution is straightforward: by narrowing the research question, for instance, focusing only on `REMOTE_WORK_CONTEXT`, the conflicting path can be excluded from the DAG.  
+
+In more complex models, separating XOR-based conditions into distinct DAGs, may be necessary. This preserves internal consistency without forcing a logically invalid structure. Since tools like DAGitty cannot model XOR logic directly, such decisions must be made manually and documented clearly.
+
+## Issue 6: IS vs. OUGHT
+VAST uniquely distinguishes between what is assumed to be the case (IS) and what should be the case (OUGHT) [@leisingVisualArgumentStructure2023a]. This allows the model to include both empirical beliefs and normative goals. This distinction is often blurred in psychological theorizing. For example, a theory might state that autonomy support is currently low but should be improved to enhance well-being.
+
+DAGs, by contrast, are strictly empirical tools. All nodes represent observable variables, and arrows indicate direct causal effects. They do not support normative reasoning or encode desired states. Translating OUGHT-elements into DAGs risks misrepresenting normative goals as empirical facts. To prevent this, only IS-based assumptions should enter the DAG. Normative content remains in the broader VAST representation and must be kept analytically separate. This preserves the empirical integrity of the DAG while allowing the full richness of theory to remain visible in VAST.
+
+#### Application of Issue 6
+In our model, the IS-element indicates that we adopt the empirical assumptions and claims from @gagneUnderstandingShapingFuture2022 as the starting point for formalization. According to @leisingVisualArgumentStructure2023a, IS-values in VAST mark which parts of a theory are assumed to hold in the real world, without necessarily reflecting a personal belief or universal consensus. In this sense, our IS-label serves as an analyst element: it transparently states that the model reflects Gagné’s interpretation, not our own.
+
+This distinction has no structural consequences for the DAG translation, as IS and OUGHT elements do not appear as nodes or causal arrows. However, it reminds us that any empirical model is based on assumptions about what is the case. Being explicit about this avoids the common pitfall of overstating preliminary interpretations or confusing them with tested facts. The use of IS here reinforces the logic of our picture-frame metaphor: the DAG reflects one particular view framed for causal analysis.
+
+## Issue 7: Conceptual Ambiguity and Jingle–Jangle Fallacies
+One of the most pervasive obstacles to theoretical progress in psychology is conceptual ambiguity. It often arises in the early stages of theory development, where long verbal introductions attempt to formalize complex ideas without structural clarity, precisely the problem VAST was designed to address. This ambiguity manifests most clearly in the well-documented jingle-jangle fallacies [@wulffEscapingJingleJangle2025]. The jingle fallacy occurs when different constructs are treated as equivalent because they share a label (e.g., “well-being”), while the jangle fallacy refers to assigning different labels to theoretically identical constructs. These issues threaten construct validity, fragment cumulative theorizing, and hinder replication.
+
+VAST offers a set of formal conventions to counteract such ambiguity. It requires each construct to be anchored in a quote from the source theory, to be clearly defined in terms of its measurement level and range (see Step 5: Construct Source Table), and to be marked as either atomic or composite. Composite constructs, those that combine several theoretical components, must be explicitly structured and cannot be used interchangeably with atomic terms without justification. This enforces a structural transparency that is missing in traditional verbal models. Moreover, VAST’s ability to distinguish between IS and OUGHT statements (see Issue 6) and to assign constructs to specific perspectives further emphasizes that theoretical terms are often vague, contested, or context dependent. This highlights the importance of avoiding the uncritical reuse of labels without clear conceptual grounding.
+
+In contrast, DAGs treat each node as a discrete, measurable variable and ignore internal conceptual structure. They do not distinguish between composite and atomic nodes, nor clarify whether a variable refers to a latent construct, observable proxy, or bundled indicator set. Without external clarification, jingle–jangle issues may be amplified.
+
+This becomes critical when translating from VAST to DAG. While VAST allows the documentation of terminological disagreements, competing definitions, or IS/OUGHT distinctions, DAGs presuppose that all variables are well-defined, stable, and causally valid. They lack native support for conceptual ambiguity, hierarchical structure, or perspective-dependent meanings.
+
+#### Application of Issue 7
+Beyond the general issues of conceptual clarity, additional challenges emerge when translating VAST constructs into DAG variables. First, whether a node represents a binary classification (e.g., remote work: yes/no), a continuous intensity variable (e.g., days per week spent remote), or a latent construct with ordinal indicators (e.g., perceived flexibility) is not represented in the DAG structure itself. As a result, theoretically relevant distinctions, such as whether hybrid work is treated as a separate condition or as a midpoint on a remote work continuum, can be lost during model translation unless carefully documented externally.
+
+Additional issues arise, when we look at the terms "remote work" and "hybrid work" and how they can be operatinalized in our case and how they are used across studies. @gagneUnderstandingShapingFuture2022 mostly refer to remote work, describing it as a work arrangement where people spend some days at home and others at the workplace. They occasionally switch to virtual work but do not distinguish the terms formally. The phrase hybrid work appears briefly, seemingly as a subtype of remote work, but without precise boundaries.
+
+@brunelleDistanceMakesHeart2021, on the other hand, define telework as working away from the office for at least half of the time, enabled by digital tools. This includes both part-time and full-time remote arrangements. Later in their paper, they mention hybrid work again, but treat it as a mix of telework and office work, functionally very similar to their earlier definition of telework.
+This results in two distinct problems. First, a jangle fallacy occurs because Gagné’s remote work and Brunelle’s telework describe nearly the same concept but use different labels. Second, a jingle fallacy arises around hybrid work, which both studies mention but define inconsistently. Sometimes it refers to a general strategy of mixing on-site and off-site work over time, sometimes it overlaps with part-time remote work. Because none of these terms are clearly distinguished or structurally defined, it becomes difficult to compare findings or to know which group in an experimental setting is being referred to.
+This has serious implications. If a group labeled “hybrid work” in one study corresponds to a “remote work” group in another, construct validity is undermined. Generalizability and comparability across studies are also weakened. Without clear definitions, the same term may refer to different real-world conditions or different terms may refer to the same one.
+This again highlights the need for transparent construct modeling when translating from VAST to DAG. The solution for this "translation-issue" comes from the integration of the two concepts themselves. VAST requires each construct to be anchored in a source quote, defined by scale and range, and marked as atomic or composite, when done accurately (see Step 5). Thus, rather than introducing new problems, the VAST formalization clarifies conceptual commitments that DAGs could cause confusion in a non-VAST guided DAG construction. The formalization outcomes give well-structured and transparent working definitions, that can be used to lead future discussions and work. 
+At the field level, broader solutions are needed. @wulffEscapingJingleJangle2025 for example, propose using large language models (LLMs) to detect and map overlapping constructs across studies, helping to avoid both jingle and jangle fallacies through semantic comparison. These tools complement structural approaches like VAST by supporting construct coherence at scale.
+
+## Simulation-Based Reanalysis of Brunelle & Fortin (2021)
+The frequently cited empirical study by @brunelleDistanceMakesHeart2021 applies SDT to modern work contexts by comparing the psychological need satisfaction of teleworkers and office workers within a single organization. In doing so, their work is conceptually close to the theoretical framework outlined by @gagneUnderstandingShapingFuture2022, the basis throughout this thesis. In the present section, we revisit their findings using the methodological insights gained through the systematic formalization of SDT via VAST and DAGs.
+
+Contrary to their original hypothesis, @brunelleDistanceMakesHeart2021 report a positive effect of telework on the satisfaction of the relatedness need, a rather surprising result, given that increased physical distance is typically assumed to hinder social relatedness in SDT-based theorizing.
+
+This finding raises several methodological and theoretical issues that align with key concerns discussed in this thesis. First, the study uses the term *telework* interchangeably with *remote work*, without offering a clear construct definition or operational distinction. This reflects a classic instance of the jingle fallacy, as discussed in Issue 7. Second, although the authors interpret the observed association as direct evidence for a positive impact of telework, it remains unclear whether they estimated a total effect or a direct effect, a critical distinction in causal inference, addressed in Issue 3. The article does not report any mediation analysis, nor does it engage with the conceptual implications of possible indirect pathways.
+
+Notably, in their discussion section, the authors retrospectively acknowledge that the organization had introduced targeted support structures to mitigate the social and psychological costs of remote work. These included tools for team coordination, virtual social events, and regular communication routines, interventions that likely served to buffer the loss of informal social contact. However, this mediating mechanism was neither formally modeled nor empirically measured. In the terminology introduced throughout this thesis, such contextual interventions are captured by the construct Organizational Support Structures (see Issue 1). Neglecting to account for OSS can result in a misinterpretation of the overall effect of remote work on relatedness need satisfaction, as the observed association may reflect a compensated effect, rather than a direct causal relationship.
+
+Unfortunately, the original dataset by @brunelleDistanceMakesHeart2021 is not publicly available, and repeated attempts to gain access remained unsuccessful. This reflects a broader structural problem in psychological science - namely, the lack of accessible empirical data for replication and secondary analysis. The scientific and ethical importance of data transparency and how it should be done is broadly discussed by @schonbrodtHowSharePsychological2020.
+
+In the absence of original data, I constructed a simulated dataset based on theoretically informed parameter assumptions and estimated a Structural Equation Model (SEM). The primary aim of this simulation is not to reproduce the exact statistical results of the original study, but to demonstrate how the presence or absence of a mediator such as OSS can significantly alter the interpretation of observed effects. This approach may offer a valuable addition to the VAST–DAG workflow, particularly as a final step to empirically test the robustness of theoretical structures when original data is unavailable, incomplete, or ambiguously interpreted, as is the case here.
+
+To maintain transparency, we deliberately excluded the second potential mediator: `SOCIAL_CONNECTION_CONDITIONS`, despite its inclusion in our VAST model. This decision mirrors the empirical scope of the original study, which also did not account for such granular features of the social environment, even though these likely contribute substantially to the effect of remote work on relatedness. As such, the current simulation focuses solely on OSS (Z) as a single, theoretically grounded mediator of the relationship between remote work (X) and relatedness satisfaction (Y). This structure is depicted as a DAG in Figure 9.
+
+The structure of the simulation was modelled accordingly. The parameters were chosen to simulate the following causal relationships:
+
+- A negative direct effect of remote work (X) on relatedness satisfaction (Y): *c* = –0.15.  
+- A positive effect of remote work (X) on organizational support structures (Z): *a* = 0.50.  
+- A positive effect of support structures (Z) on relatedness satisfaction (Y): *b* = 0.50.  
+- Normally distributed residuals and three additive control variables (C1–C3), representing age, gender, and tenure.
+
+**Figure 9**
+
+*Simulation-DAG based on Brunelle & Fortin (2021); OSS as Mediator*
+![](figures/Simulation_DAG.png){width=50% fig-align="center"}
+To better reflect real-world data conditions and to demonstrate a common source of bias, I additionally modeled the binary treatment variable X (remote vs. office work) as a function of the confounders C. This approach ensures that the confounders act as common causes of both the predictor and the outcome - a key condition for confounding.
+This setup mirrors the theoretical expectation that remote work, in the absence of compensatory mechanisms, may impair social connection (→ negative direct effect). However, when organizational support structures are implemented (e.g., virtual team events, regular check-ins), they may offset this effect via a positive indirect pathway. This compensated total effect is particularly relevant in light of Issue 3, which emphasizes the need to distinguish between direct and indirect pathways and to correctly account for confounding variables in the estimation of causal effects.
+
+**Table 1**  
+
+*Standardized Path Coefficients from the SEM Analysis*
+
+![](figures/table1.png){width=50% fig-align="center"}
+
+\newpage
+The simulation was implemented in R using the `lavaan` package [@rosseelLavaanPackageStructural2012a]. Code and full reproducibility scripts are provided in the `/code` folder on the [GitHub repository](https://github.com/CasparSchumacher/VAST-SDT-RemoteWork/blob/main/code/simulation_v3.R). 
+
+### Interpretation
+The simulation results illustrate a theoretically coherent scenario: the direct effect of remote work on relatedness is negative (*c*), but is offset by a positive indirect path (*a* × *b*) through organizational support. This yields a non-significant yet directionally positive total effect (*c* + *a* × *b*). Notably, the estimated total effect closely approximates the value reported by (β = 0.11), which they interpreted as evidence that remote work enhances relatedness. Our simulation demonstrates that such a conclusion may be misleading if the underlying causal structure is not taken into account. Rather, the observed association may reflect a compensated total effect, arising from an unmodeled mediating process.
+
+This finding reinforces the central claim of this thesis: that formal theory modeling via the VAST, combined with downstream causal inference through DAGs, can help prevent critical misinterpretations in psychological research.
+While neither the direct (*c*) nor the total effect (*c* + *a* × *b*) reached statistical significance (*p* = .294 and *p* = .174), the pattern of coefficients is consistent with theoretical expectations. The lack of significance is likely attributable to the moderate sample size (*n* = 448) and the conservatively chosen residual variance in the simulation (σ = 1).
+
+To further demonstrate the risks of omitted mediator bias, we estimated a second model in which the mediator Z was deliberately excluded, despite being part of the data-generating process. This mimics a scenario in which a theoretically relevant mechanism (e.g., organizational support structures) is ignored during analysis.
+Interestingly, this misspecified model produced a positive coefficient for the direct path from remote work to relatedness (*ĉ* = 0.17, *p* = .127), despite the true direct effect being negative (*c* = –0.15). The result closely mirrors the empirical findings by @brunelleDistanceMakesHeart2021 and suggests that the positive association may not indicate a genuine benefit of remote work, but rather a masked indirect effect.
+
+This underscores a central methodological point: unmodeled mediators can produce biased or even sign-reversed estimates. Simulation, as a final step in the VAST–DAG workflow, offers a valuable tool for identifying such distortions and testing the robustness of theoretical claims.
+
+# Discussion
+
+## Tool Integration and Theoretical Value
+VAST and DAGs differ not in ambition but in epistemic function. VAST structures theoretical arguments across definitional, normative, and causal levels; DAGs encode statistical implications of causal assumptions. Their integration offers a sequential workflow from theory articulation to testable inference, addressing the gap between verbal theorizing and empirical modeling.
+
+This directly addresses the critique raised by @rohrerPeerReviewLeising2023, which was presented in the Chapter on “Methodological Positioning and Related Work”. First, VAST adds value where DAGs remain silent by making explicit which parts of a theory are conceptual, evaluative, or empirically undecidable. It helps uncover assumptions that are typically embedded in verbal accounts but excluded from causal graphs. Second, VAST, ideally in combination with a DAG integration step, can support researchers in early stages of theory development, particularly when theories span multiple claim types. Whether this added value extends to other scientific domains beyond psychology remains an open question.
+
+Importantly, VAST does not aim to replace DAGs. Instead, as demonstrated here, it informs them: by making theoretical assumptions visible and structurally explicit, it improves the quality of DAG specification and increases the transparency of modeling decisions. Rather than subsuming other formalisms, VAST helps delineate what a DAG should encode. The tools operate at different levels but are logically compatible. This layered approach acknowledges the complexity of psychological theories without enforcing premature quantification and offers a practical path toward more rigorous model construction.
+
+Finally, while Rohrer raises the possibility that the lack of theoretical clarity in psychology may be a motivational or cultural issue rather than a technological one, this does not diminish the role of structuring tools. VAST does not claim to solve motivational problems. But by increasing clarity and traceability, it supports those who are willing to engage more systematically with their theoretical assumptions. In this sense, it does not enforce but facilitates conceptual discipline.
+
+## Modeling Insights from formalizing SDT with VAST
+The formalization of SDT under remote work conditions revealed how even well-established theories involve interpretive modeling decisions and get complex super quickly. Despite its verbal coherence, SDT required disambiguation at nearly every step, forcing modeling decisions early in the process.
+
+VAST offered a structured language to address these issues but did not eliminate ambiguity. Its value lay in making assumptions explicit and documenting decision points. Even in this deliberately reduced example, modeling required subjective interpretation, highlighting that formalization is not a mechanical process but a reflective one.
+
+Importantly, VAST forces researchers to pose the right questions from the outset, rather than retroactively addressing methodological ambiguities after empirical results are produced. The quality of VAST-based modeling will likely improve as more studies adopt the framework and shared conventions emerge for methodologically sound theory construction.
+
+The process also clarified that many core assumptions in SDT remain underdefined in terms of causal logic. By enforcing a transition from theory to model, VAST and DAGs jointly exposed where empirical commitments were vague or absent, turning implicit reasoning into structured, inspectable arguments. This shift is less about precision than about accountability in theory construction.
+
+## Limitations and Future Work
+The modeling process required deliberate reductions. Several theoretically relevant constructs were omitted to ensure tractability, both due to the scope of this thesis and because complex models often exceed the limits of empirical testability. Such simplifications are not a flaw, but a necessary step in translating theory into analyzable form. They must, however, be reasonably justified and transparently documented.
+
+No empirical test of the resulting DAG could be conducted. Despite multiple data requests, e.g. to  @brunelleDistanceMakesHeart2021, no datasets were made available. This reflects a persistent structural problem in psychological science. As @schonbrodtHowSharePsychological2020 argues, better data sharing practices are essential for making theory-to-data integration feasible.
+
+Future work should aim to formalize and standardize the transition from VAST to DAG. Automating this step could facilitate wider use, but only if VAST models are built with greater semantic discipline. Despite making several steps into the right direction, VAST still permits intuitive modeling decisions that risk misinterpretation during formal translation which points to possible refinements of the VAST architecture itself. Stricter conventions for specifying causal directionality, link types, and empirical status could enhance model quality and enable tool-supported workflows. DAGs help by forcing these decisions. A structured VAST → DAG → SEM pipeline is both conceivable and desirable. Such a workflow could help bridge the gap between verbal theorizing and statistical modeling, and enable researchers to move from conceptual clarity to empirical testability in a methodologically rigorous way. However, its implementation requires formal standards that support automation, validation, and consistency across cases. Addressing these limitations could reduce the (partly perceived) barriers to practical feasibility that currently prevent researchers from applying such formal tools more broadly.
+
+Ultimately, the broader issue is not tool complexity, but theoretical imprecision. In part, this is rooted in the nature of psychological constructs themselves [@eronenTheoryCrisisPsychology2021]. However, if psychology is to move beyond its foundational crisis, researchers must confront the ambiguity of their own assumptions. While formalization is demanding, it reveals implicit commitments and enforces theoretical accountability. If theory is to guide inference, such scrutiny is not optional but necessary.
+
+\newpage
+
+# Abbreviations
+
+![](figures/abbreviation.png){fig-align="center"}
+
+\noindent Note: The abbreviation SCC is used only in demonstrative examples to reduce visual complexity. In the actual VAST construction, all constructs are retained in their full semantic form using `CAPITAL_SNAKE_CASE` notation to preserve conceptual clarity and transparency. 
+
+\newpage
+
+# List of Figures and Tables
+
+![](figures/figuresntables.png){fig-align="center"}
+\newpage
+
+# References
+
+<!-- References will auto-populate in the refs div below -->
+
+::: {#refs}
+:::
